@@ -1,0 +1,28 @@
+#main-container {
+    margin: 0 10%;
+}
+
+h1 {
+    padding: 0 10%;
+    background-color: gray;
+}
+
+textarea {
+    width: 100%;
+}
+
+.post-border {
+    border: solid 1px black;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.title {
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.post {
+    padding: 0 8px;
+}

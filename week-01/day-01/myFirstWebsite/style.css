@@ -1,0 +1,84 @@
+body {
+    background-image: url("assets/background.png");
+    font-family: 'Merriweather', monospace;
+}
+
+.header {
+    
+    background-color: #333333;
+    padding: 0 10%;
+    height: 70px;
+}
+
+.header div a {
+    color: #ff0099;
+    
+}
+
+.header div {
+    text-align: right;
+
+}
+.title {
+    color: #ff0099;
+}
+
+.container {
+    padding: 0 10%;
+}
+
+.consolas {
+    font-family: "consolas", sans-serif;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 30px;
+    padding-top: 10px;
+}
+
+.me {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+.about-me {
+    font-size: 24px;
+}
+
+.dash {
+    font-weight: bold;
+    text-align: center;
+}
+
+.wiki {
+    font-size: 40px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 25px;
+    font-weight: bolder;
+}
+
+.definition {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.menu-item {
+    
+    font-size: 20px;
+    font-family: "consolas", sans-serif;
+    padding: 30px;
+}
+
+.menu {
+    padding-top: 25px;
+}
+#logo {
+    position:absolute;
+    left: 10%;
+    top: 25px;
+}
