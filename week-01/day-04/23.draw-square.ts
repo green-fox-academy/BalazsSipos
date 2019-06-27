@@ -1,8 +1,6 @@
 'use strict';
 
 let lineCount: number = 10;
-let width: number = lineCount  * 2 - 1;
-let middle: number = ( lineCount + 1 ) / 2;
 
 // Write a program that draws a square like this:
 //
