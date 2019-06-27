@@ -33,7 +33,6 @@ for ( let i:number = 1;i<=lineCount;i++ ) {
                 collector += ' ';
             }
         }
-        //console.log(j);
     }
     console.log(collector);
 }
