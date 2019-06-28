@@ -1,0 +1,16 @@
+F1                  = Command Palette
+
+ALT + arrows        = Move line up/down
+Shift + Alt + arrows= Copy line up/down
+Ctrl + Shift + K    = Delete line
+
+Ctrl + Enter        = insert line below
+Ctrl + arrows       = Scroll window (like mouse wheel)
+Ctrl + K + C        = Add line comment
+Ctrl + K + U        = Remove line comment
+
+Ctrl + L            = Select current line
+Ctrl + F2           = Select all occurences of current word
+
+Ctrl + Space        = Trigger suggestion
+Shift + Alt + F     = Format document
