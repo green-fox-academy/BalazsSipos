@@ -10,11 +10,11 @@ let lineCount: number = 4;
 // ****
 //
 // The triangle should have as many lines as lineCount is
-for ( let i:number = 1;i<=lineCount;i++ ){
-    let collector:string = '';
-    for ( let j: number = 1;j<=i;j++ ){
-        
-        collector += '*';
-    }
-    console.log(collector);
+for (let i: number = 1; i <= lineCount; i++) {
+  let collector: string = '';
+  for (let j: number = 1; j <= i; j++) {
+
+    collector += '*';
+  }
+  console.log(collector);
 }

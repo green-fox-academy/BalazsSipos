@@ -12,14 +12,14 @@ let lineCount: number = 10;
 // %%%%%%
 //
 // The square should have as many lines as lineCount is
-for ( let i:number = 1;i<=lineCount;i++ ){
-    let collector:string = '';
-    for ( let j: number = 1;j<=lineCount;j++ ){
-        if ( ( i == 1 || i == lineCount ) || ( j == 1 || j == lineCount ) ) {
-            collector += '%';
-        } else {
-            collector += ' ';
-        }
+for (let i: number = 1; i <= lineCount; i++) {
+  let collector: string = '';
+  for (let j: number = 1; j <= lineCount; j++) {
+    if ((i == 1 || i == lineCount) || (j == 1 || j == lineCount)) {
+      collector += '%';
+    } else {
+      collector += ' ';
     }
-    console.log(collector);
+  }
+  console.log(collector);
 }

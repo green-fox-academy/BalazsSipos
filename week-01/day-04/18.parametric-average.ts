@@ -7,8 +7,8 @@ let number: number = 5
 let sum: number = 0;
 let count: number = 0;
 
-for ( let i:number = 1;i<=number;i++) {
-    sum += i;
-    count++;
+for (let i: number = 1; i <= number; i++) {
+  sum += i;
+  count++;
 }
-console.log("Sum: " + sum + ", Average: " + sum/count);
+console.log("Sum: " + sum + ", Average: " + sum / count);

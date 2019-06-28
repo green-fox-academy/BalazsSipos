@@ -4,8 +4,8 @@
 //  Returns the starting index where the second one is starting in the first one
 //  Returns `-1` if the second string is not in the first one
 
-function substr(str: string, keyword: string) : number {
-    return str.indexOf(keyword);
+function substr(str: string, keyword: string): number {
+  return str.indexOf(keyword);
 }
 
 //  Example
