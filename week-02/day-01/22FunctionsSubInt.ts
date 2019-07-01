@@ -8,7 +8,7 @@ function subint(search: number, arr: number[]) {
   let collectorArr: number[] = [];
   arr.forEach(function (value, index) {
     if (value.toString().indexOf(search.toString()) != -1) {
-      let arrayLength: number = collectorArr.push(index);
+      collectorArr.push(index);
     }
   });
   return collectorArr;
