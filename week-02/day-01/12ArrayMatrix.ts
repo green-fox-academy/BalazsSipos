@@ -19,7 +19,7 @@ for (let i: number = 1; i <= dimension; i++) {
       matrix[i - 1][j - 1] = 0;
     }
   }
-  console.log(matrix[i - 1]);
+  console.log(matrix[i - 1].join(" "));
 }
 // -  Print this two dimensional list to the console
 
