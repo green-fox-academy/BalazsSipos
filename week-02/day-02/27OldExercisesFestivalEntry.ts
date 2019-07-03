@@ -45,8 +45,8 @@ function securityCheck(queueList): string[] {
 }
 
 securityCheck(queue);
-for(let i: number = deleteElement.length-1;i>=0;i--) {
-  queue.splice(deleteElement[i],1);
+for (let i: number = deleteElement.length - 1; i >= 0; i--) {
+  queue.splice(deleteElement[i], 1);
 }
 
 console.log('List of guys, who can enter: ');
