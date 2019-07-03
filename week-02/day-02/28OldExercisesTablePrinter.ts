@@ -34,6 +34,7 @@ ingredients.forEach(function (tempObject, index) {
 console.log(longestIngredientName);
 
 let characterCollector: string = '';
+// Prints the given pieces from the given character
 function printCharacters(character: string, numberOfDashes: number) {
   characterCollector = '';
   for (let i: number = 1; i <= numberOfDashes; i++) {
@@ -42,8 +43,9 @@ function printCharacters(character: string, numberOfDashes: number) {
   return characterCollector;
 }
 
+// Prints the header
 console.log('+' + printCharacters('-', longestIngredientName + 2) + '+' + printCharacters('-', 15) + '+' + printCharacters('-', 10) + '+');
-console.log('| Ingredient         | Needs cooling | In stock |');
+console.log('| Ingredient' + printCharacters(' ', longestIngredientName - 'Ingredient'.length + 1) + '| Needs cooling | In stock |');
 console.log('+' + printCharacters('-', longestIngredientName + 2) + '+' + printCharacters('-', 15) + '+' + printCharacters('-', 10) + '+');
 
 // Prints the body of the table
@@ -52,11 +54,16 @@ function printIngredients(ingredientsObject) {
   ingredientsObject.forEach(function (tempObject, indexOfObject) {
     rowStringCollector = '';
     rowStringCollector += '| ' + tempObject.name;
-    rowStringCollector += printCharacters('-', longestIngredientName - tempObject.name.length);
-    rowStringCollector += ' | ' + tempObject.needsCooling ? 'Yes' : 'No';
-    rowStringCollector += printCharacters('-', tempObject.needsCooling ? 10 : 11);
+    rowStringCollector += printCharacters(' ', longestIngredientName - tempObject.name.length);
+    rowStringCollector += ' | ' + (tempObject.needsCooling ? 'Yes' : 'No ');
+    rowStringCollector += printCharacters(' ', 10);
+    rowStringCollector += ' | ' + (tempObject.inStock === 0 ? '-' : tempObject.inStock);
+    rowStringCollector += printCharacters(' ', 8) + '|';
     console.log(rowStringCollector);
   });
 }
 
 printIngredients(ingredients);
+
+// Prints the last row
+console.log('+' + printCharacters('-', longestIngredientName + 2) + '+' + printCharacters('-', 15) + '+' + printCharacters('-', 10) + '+');
