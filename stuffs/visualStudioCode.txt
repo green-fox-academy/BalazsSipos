@@ -24,3 +24,5 @@ C+F2 = Select all occurences of current word
 C+Space = Trigger suggestion
 
 S+A+f = Format document
+
+C+k+t = Theme selector
