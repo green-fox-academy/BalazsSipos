@@ -44,14 +44,14 @@ let drawlines = {
   },
 
   // Draw a vertical set of hexagons
-  paintDown(startXY: number[], PiecestoPaint: number) {
+  paintDown(startXY: number[], PiecestoPaint: number): void {
     for (let i: number = 1; i <= PiecestoPaint; i++) {
       this.drawHexagon([startXY[0], startXY[1] + (i - 1) * 2 * this.yStep]);
     }
   },
 
   // Draw all hexagons
-  drawAllHexagons: function () {
+  drawAllHexagons: function (): void {
     this.paintDown(this.startXY, this.numberOfHexagonPerSize * 2 - 1);
     for (let i: number = 1; i < this.numberOfHexagonPerSize; i++) {
       this.paintDown([this.startXY[0] - 1.5 * i * this.xStep, this.startXY[1] + this.yStep * i], this.numberOfHexagonPerSize * 2 - 1 - i);
