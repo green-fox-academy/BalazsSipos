@@ -9,9 +9,9 @@ let xStep = canvas.width * (1 - cropAmount) / numberOfLines; // the distance of 
 let yStep = canvas.height * (1 - cropAmount) / numberOfLines;
 
 function drawLines1(color: string, xLength: number, yLength: number) {
+  ctx.strokeStyle = color;
   for (let i: number = 1; i <= numberOfLines; i++) {
     ctx.beginPath();
-    ctx.strokeStyle = color;
     ctx.moveTo(0, yLength * cropAmount + (i - 1) * yStep);
     ctx.lineTo(xStep * i, yLength);
     ctx.stroke();
@@ -19,9 +19,9 @@ function drawLines1(color: string, xLength: number, yLength: number) {
 }
 
 function drawLines2(color: string, xLength: number, yLength: number) {
+  ctx.strokeStyle = color;
   for (let i: number = 1; i <= numberOfLines; i++) {
     ctx.beginPath();
-    ctx.strokeStyle = color;
     ctx.moveTo(xLength*cropAmount + (i-1)*xStep, 0);
     ctx.lineTo(xLength, i*yStep);
     ctx.stroke();
