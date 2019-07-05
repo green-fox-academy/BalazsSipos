@@ -4,14 +4,15 @@ const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
 let drawlines = {
-  numberOfHexagonPerSize: 4,
+  numberOfHexagonPerSize: 0,
   widthInTriangles: 0,
   xStep: 0, // the distance of x coordinates between the lines in px
   yStep: 0, // the distance of y coordinates between the lines in px
   startXY: [];
 
   // build up the initial values of the properties
-  initialize: function () {
+  initialize: function (sizeOfHexagon: number) {
+    this.numberOfHexagonPerSize = sizeOfHexagon;
     this.widthInTriangles = (this.numberOfHexagonPerSize - 1) * 3 + 2;
     this.xStep = canvas.width / this.widthInTriangles;
     this.yStep = ((this.xStep) ** 2 - (this.xStep / 2) ** 2) ** 0.5;
@@ -61,5 +62,5 @@ let drawlines = {
 
 }
 
-drawlines.initialize();
+drawlines.initialize(8);
 drawlines.drawAllHexagons();
