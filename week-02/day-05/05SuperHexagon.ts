@@ -8,11 +8,9 @@ let drawlines = {
   widthInTriangles: 0,
   xStep: 0, // the distance of x coordinates between the lines in px
   yStep: 0, // the distance of y coordinates between the lines in px
-  moveDownRight: [],
-  moveUpRight: [],
-  moveDown: [],
   startXY: [];
 
+  // build up the initial values of the properties
   initialize: function () {
     this.widthInTriangles = (this.numberOfHexagonPerSize - 1) * 3 + 2;
     this.xStep = canvas.width / this.widthInTriangles;
@@ -30,7 +28,7 @@ let drawlines = {
     ctx.stroke();
   },
 
-  // Draw one hexagon
+  // Draw one hexagon with 6 lines
   drawHexagon: function (startXY: number[]): void {
     let pointA: number[] = [startXY[0] + this.xStep, startXY[1]];
     let pointB: number[] = [startXY[0] + this.xStep * 1.5, startXY[1] + this.yStep];
