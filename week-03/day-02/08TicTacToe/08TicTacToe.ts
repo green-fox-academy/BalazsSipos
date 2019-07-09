@@ -8,8 +8,14 @@
 declare function require(path: string): any
 const fs = require('fs');
 
+
 function ticTacResult(fileName: string) {
-  let fileContent: string = fs.readFileSync(fileName, 'utf-8');
+  let fileContent: string = '';
+  try {
+    fileContent = fs.readFileSync(fileName, 'utf-8');
+  } catch (e) {
+    return e.message;
+  }
   let contentArray: string[] = [];
   let contentMulti: string[][] = [];
   contentArray = fileContent.split('\n');

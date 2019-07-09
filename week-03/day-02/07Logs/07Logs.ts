@@ -8,8 +8,16 @@
 declare function require(path: string): any
 const fs = require('fs');
 
-let logContent: string = fs.readFileSync('log.txt', 'utf-8');
-let logArray = logContent.split('\n');
+try {
+  let logContent: string = fs.readFileSync('log.txt', 'utf-8');
+  let logArray = logContent.split('\n');
+  let IPsArrayG: string[] = buildIPArrays(logArray);
+  let GetPostRatioG: string = GetPostRatio(logArray);
+  console.log(IPsArrayG.length);
+  console.log(GetPostRatioG);
+} catch (e) {
+  console.log(e.message);
+}
 
 
 // Builds up the array of unique IPs
@@ -40,9 +48,3 @@ function GetPostRatio(logArray: string[]): string {
   });
   return 'Get:Post ratio is: ' + get + ':' + post;
 }
-
-let IPsArrayG: string[] = buildIPArrays(logArray);
-let GetPostRatioG: string = GetPostRatio(logArray);
-
-console.log(IPsArrayG.length);
-console.log(GetPostRatioG);
