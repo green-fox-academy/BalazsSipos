@@ -1,5 +1,7 @@
 F1 = Command Palette
 
+C+k+s = list of commands
+
 A+arrows
 = Move line up/down
 
