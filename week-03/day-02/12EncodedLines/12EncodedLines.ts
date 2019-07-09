@@ -4,8 +4,13 @@
 declare function require(path: string): any
 const fs = require('fs');
 
-let fileContent: string = fs.readFileSync('encoded-lines.txt', 'utf-8');
 let abc: string = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[-./!"';
+try {
+  let fileContent: string = fs.readFileSync('encoded-lines.txt', 'utf-8');
+  console.log(decrypt(fileContent));
+} catch (e) {
+  console.log(e.message);
+}
 
 function decrypt(content: string): string {
   let decryptedString: string = '';
@@ -28,5 +33,3 @@ function decrypt(content: string): string {
   }
   return decryptedString;
 }
-
-console.log(decrypt(fileContent));
