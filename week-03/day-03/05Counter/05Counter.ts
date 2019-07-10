@@ -17,15 +17,15 @@ class Counter {
     this.initialValue = counter;
   }
 
-  add(num: number = 1) {
+  add(num: number = 1): void {
     this.counter += num;
   }
 
-  get() {
+  get(): string {
     return this.counter.toString();
   }
 
-  reset() {
+  reset(): void {
     this.counter = this.initialValue;
   }
 }
