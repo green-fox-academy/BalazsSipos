@@ -17,7 +17,7 @@ class Sharpie {
     this.width = width;
   }
 
-  use(amount: number) {
+  use(amount: number): void {
     if (this.inkAmount >= amount) {
       this.inkAmount -= amount;
     } else {
