@@ -1,9 +1,9 @@
 import { Thing } from './thing';
 import { Fleet } from './fleet';
-import { Thing } from './thing';
 
 let fleet = new Fleet();
 
+// ORIGINAL DESCRIPTION
 // -  You have the `Thing` class
 // -  You have the `Fleet` class
 // -  Create the `FleetOfThings` class with a `main` method
@@ -19,16 +19,33 @@ class FleetOfThings {
     this.fleet = fleet;
   }
 
+  // builds the below Fleet object
+  // 1. [ ] Get milk
+  // 2. [ ] Remove the obstacles
+  // 3. [x] Stand up
+  // 4. [x] Eat lunch
   main(): void {
-    let thing1: Thing = new Thing('Get milk');
-    let thing2: Thing = new Thing('Remove the obstacles')');
-    let thing3: Thing = new Thing('Stand up');
-    thing3.complete();
-    let thing4: Thing = new Thing('Eat lunch');
-    thing4.complete();
+    this.fleet.add(new Thing('Get milk'));
+    this.fleet.add(new Thing('Remove the obstacles'));
+    this.fleet.add(new Thing('Stand up'));
+    this.fleet.getThings()[2].complete();
+    this.fleet.add(new Thing('Eat lunch'));
+    this.fleet.getThings()[3].complete();
+  }
 
-    let things: Thing[] = [];
-    
+  // Prints the Fleet object
+  print(): string {
+    let fleet: Fleet = this.get();
+    let things: Thing[] = fleet.getThings();
+    let stringCollector: string = '';
+
+    for (let i: number = 0; i < things.length; i++) {
+      stringCollector += (i + 1) + '. [';
+      stringCollector += things[i].getCompleted() ? 'x' : ' '; // ternary operator
+      stringCollector += '] ' + things[i].getName();
+      stringCollector += things.length - 1 !== i ? '\n' : ''; // ternary operator
+    }
+    return stringCollector;
   }
 
   get(): Fleet {
@@ -38,26 +55,8 @@ class FleetOfThings {
 
 let fOT: FleetOfThings = new FleetOfThings(fleet);
 
-// Initial state of fOT
-console.log(fOT);
+// build the 4 Thing objects inside the Fleet object of the FleetOfThings object
+fOT.main();
 
-let things: Thing[] = [];
-
-
-things.push(new Thing('Get milk'));
-things.push(new Thing('Remove the obstacles'));
-things.push(new Thing('Stand up'));
-things.push(new Thing('Stand up'));
-things.push(new Thing('Eat lunch'));
-
-fOT.main(things);
-let sg: Fleet = fOT.get();
-console.log(sg);
-console.log(fOT);
-
-// 1. [ ] Get milk
-// 2. [ ] Remove the obstacles
-// 3. [x] Stand up
-// 4. [x] Eat lunch
-
-// Hint: You have to create a `print()` method as well
+// print out the Fleet object
+console.log(fOT.print());
