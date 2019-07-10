@@ -18,12 +18,12 @@ class PostIt {
 
 // Create a few example post-it objects:
 // an orange with blue text: "Idea 1"
-let postIt_1 = new PostIt('orange', 'Idea 1', 'blue');
+let postIt_1: PostIt = new PostIt('orange', 'Idea 1', 'blue');
 // a pink with black text: "Awesome"
-let postIt_2 = new PostIt('pink', 'Awesome', 'black');
+let postIt_2: PostIt = new PostIt('pink', 'Awesome', 'black');
 
 // a yellow with green text: "Superb!"
-let postIt_3 = new PostIt('yellow', 'Superb!', 'green');
+let postIt_3: PostIt = new PostIt('yellow', 'Superb!', 'green');
 
 console.log(postIt_1);
 console.log(postIt_2);
