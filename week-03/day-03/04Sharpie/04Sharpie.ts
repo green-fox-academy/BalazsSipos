@@ -10,11 +10,12 @@
 class Sharpie {
   color: string;
   width: number;
-  inkAmount: number = 100;
+  inkAmount: number;
 
-  constructor(color: string, width: number) {
+  constructor(color: string, width: number, ink: number = 100) {
     this.color = color;
     this.width = width;
+    this.inkAmount = ink;
   }
 
   use(amount: number): void {
@@ -36,3 +37,5 @@ console.log(Obj1);
 // Ink will be 0 here, not -10
 Obj1.use(90);
 console.log(Obj1);
+
+export {Sharpie};
