@@ -9,8 +9,13 @@
 // Every animal can play() which increases both by one
 
 class Animal {
-  hunger: number = 50;
-  thirst: number = 50;
+  hunger: number;
+  thirst: number;
+
+  constructor(hung: number = 50, thir: number = 50) {
+    this.hunger = hung;
+    this.thirst = thir;
+  }
 
   eat(): void {
     if (this.hunger !== 0) {
@@ -33,6 +38,8 @@ class Animal {
     }
   }
 }
+
+export { Animal };
 
 let animal = new Animal();
 
