@@ -2,7 +2,7 @@
 
 // Given a non-negative integer n, return the sum of its digits recursively (without loops).
 
-function sumOfDigits(num: number) {
+function sumOfDigits(num: number): number {
   if (num / 10 <= 1) {
     return num;
   } else {
