@@ -18,9 +18,9 @@ class Pirate {
   state: string = 'alive';
 
   // Adds to rumNumber a random number between 1 and 5
-  drinkSomeRum(): void {
+  drinkSomeRum(max: number): void {
     if (this.state !== 'died') {
-      this.rumNumber += Math.ceil(Math.random() * 5);
+      this.rumNumber += Math.ceil(Math.random() * max);
     }
   }
 

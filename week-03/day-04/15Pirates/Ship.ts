@@ -27,7 +27,12 @@ class Ship {
 
     if (ownPoints > otherPoints) {
       this.shipDrinkSomeRum(2);
-      otherShip
+      otherShip.killSomePirates();
+      return true;
+    } else {
+      this.killSomePirates();
+      otherShip.shipDrinkSomeRum(2);
+      return false;
     }
   }
 
@@ -67,8 +72,3 @@ class Ship {
 }
 
 export { Ship };
-// Create a ship
-let ship1: Ship = new Ship();
-console.log(ship1);
-ship1.initializeForWar();
-console.log(ship1);
