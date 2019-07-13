@@ -11,7 +11,7 @@ class BattleApp{
     this.otherShip= new Ship();
   }
   
-  initializeShipsForWar(){
+  initializeShipsForBattle(){
     this.ship.initializeForWar();
     console.log(this.ship);
     this.otherShip.initializeForWar();

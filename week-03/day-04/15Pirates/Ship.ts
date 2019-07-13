@@ -6,11 +6,18 @@ class Ship {
   crew: Pirate[] = [];
   captain: Pirate;
   state: string = 'alive';
+  numberOfPirates: number[]; // from till, [4, 8] means 4-8 pirates for all ships
+
+  constructor(piratesNumber: number[]) {
+    this.numberOfPirates = piratesNumber;
+  }
 
   private fillShip(): void {
     // Create 4-8 pirates + 1 captain
-    let rand: number = Math.ceil(Math.random() * 5);
-    for (let i: number = 1; i <= 3 + rand; i++) {
+    let rand: number = Math.ceil(Math.random() * (this.numberOfPirates[1]-this.numberOfPirates[0]+1));
+    console.log('                                                              ' + rand);
+    // let rand: number = 0;
+    for (let i: number = 1; i <= this.numberOfPirates[0]-1 + rand; i++) {
       this.crew.push(new Pirate());
     }
     this.captain = new Pirate();
@@ -26,19 +33,21 @@ class Ship {
     let currentPirate: any = this.getTheFirstAlivePirate();
     let otherCurrentPirate: any = otherShip.getTheFirstAlivePirate();
 
+    console.log('NEW BATTLE');
 
     while (currentPirate && otherCurrentPirate) {
       // if(currentPirate && otherCurrentPirate) { // of both are alive
 
       currentPirate.brawl(otherCurrentPirate);
-      console.log(this);
-      console.log(otherShip);
+      // console.log(this);
+      // console.log(otherShip);
 
       currentPirate = this.getTheFirstAlivePirate();
       otherCurrentPirate = otherShip.getTheFirstAlivePirate();
 
     }
 
+    console.log('HANDLE RESULT');
     return this.handleBattleResult(otherShip);
   }
 
@@ -66,13 +75,10 @@ class Ship {
     let randomNumberOfDeath: number = Math.ceil(Math.random() * getNumberOfNotDeadPirates / 2);
     console.log(randomNumberOfDeath);
     let deathCounter: number = 0;
-    console.log(this.crew.length);
     for (let i: number = 0; i < this.crew.length; i++) {
 
       if (deathCounter < randomNumberOfDeath) {
         if (this.crew[i].state !== 'died') {
-          console.log(this.crew[i].state);
-
           this.crew[i].state = 'died';
           deathCounter++;
         }
@@ -103,18 +109,19 @@ class Ship {
       this.shipDrinkSomeRum(2);
       otherShip.killSomePirates();
       otherShip.state = 'died';
-      console.log(this);
-      console.log(otherShip);
+      // console.log(this);
+      // console.log(otherShip);
       return true;
     } else {
       this.killSomePirates();
+      this.state = 'died';
       otherShip.shipDrinkSomeRum(2);
-      console.log(this);
-      console.log(otherShip);
+      // console.log(this);
+      // console.log(otherShip);
       return false;
     }
   }
-  
+
   private currentPointsCalculator(): number {
     return this.getNumberOfNotDeadPirates() - this.captain.rumNumber;
   }
