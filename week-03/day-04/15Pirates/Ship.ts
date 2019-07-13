@@ -7,7 +7,7 @@ class Ship {
   captain: Pirate;
   state: string = 'alive';
 
-  fillShip(): void {
+  private fillShip(): void {
     // Create 4-8 pirates + 1 captain
     let rand: number = Math.ceil(Math.random() * 5);
     for (let i: number = 1; i <= 3 + rand; i++) {
@@ -39,29 +39,10 @@ class Ship {
 
     }
 
-    const ownPoints: number = this.getNumberOfNotDeadPirates() - this.captain.rumNumber;
-    const otherPoints: number = otherShip.getNumberOfNotDeadPirates() - otherShip.captain.rumNumber;
-
-    console.log(ownPoints);
-    console.log(otherPoints);
-
-    if (ownPoints > otherPoints) {
-      this.shipDrinkSomeRum(2);
-      otherShip.killSomePirates();
-      otherShip.state = 'died';
-      console.log(this);
-      console.log(otherShip);
-      return true;
-    } else {
-      this.killSomePirates();
-      otherShip.shipDrinkSomeRum(2);
-      console.log(this);
-      console.log(otherShip);
-      return false;
-    }
+    return this.handleBattleResult(otherShip);
   }
 
-  getNumberOfNotDeadPirates(): number {
+  private getNumberOfNotDeadPirates(): number {
     let numberOfAlive: number = 0;
     this.crew.forEach(element => {
       if (element.state !== 'died') {
@@ -71,7 +52,7 @@ class Ship {
     return numberOfAlive;
   }
 
-  shipDrinkSomeRum(max: number): void {
+  private shipDrinkSomeRum(max: number): void {
     for (let i: number = 1; i < this.crew.length; i++) {
       this.crew[i].drinkSomeRum(max);
       this.crew[i].howsItGoingMate();
@@ -79,7 +60,7 @@ class Ship {
     this.captain.drinkSomeRum(2);
   }
 
-  killSomePirates(): void {
+  private killSomePirates(): void {
     let getNumberOfNotDeadPirates: number = this.getNumberOfNotDeadPirates();
     console.log(getNumberOfNotDeadPirates);
     let randomNumberOfDeath: number = Math.ceil(Math.random() * getNumberOfNotDeadPirates / 2);
@@ -101,13 +82,41 @@ class Ship {
     }
   }
 
-  getTheFirstAlivePirate(): any {
+  private getTheFirstAlivePirate(): any {
     for (let i: number = 0; i < this.crew.length; i++) {
       if (this.crew[i].state === 'alive') {
         return this.crew[i];
       }
     }
     return false;
+  }
+
+  
+  private handleBattleResult(otherShip: Ship): boolean {
+    const ownPoints: number = this.currentPointsCalculator();
+    const otherPoints: number = otherShip.currentPointsCalculator();
+    
+    console.log(ownPoints);
+    console.log(otherPoints);
+    
+    if (ownPoints > otherPoints) {
+      this.shipDrinkSomeRum(2);
+      otherShip.killSomePirates();
+      otherShip.state = 'died';
+      console.log(this);
+      console.log(otherShip);
+      return true;
+    } else {
+      this.killSomePirates();
+      otherShip.shipDrinkSomeRum(2);
+      console.log(this);
+      console.log(otherShip);
+      return false;
+    }
+  }
+  
+  private currentPointsCalculator(): number {
+    return this.getNumberOfNotDeadPirates() - this.captain.rumNumber;
   }
 }
 
