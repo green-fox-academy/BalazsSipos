@@ -27,13 +27,13 @@ class Pirate {
   howsItGoingMate(): void {
     if (this.state !== 'died') {
       if (this.rumNumber <= 4) {
-        console.log('Pour me anudder!');
+        // console.log('Pour me anudder!');
       } else {
-        console.log('Arghh, I\'ma Pirate. How d\'ya d\'ink its goin?');
+        // console.log('Arghh, I\'ma Pirate. How d\'ya d\'ink its goin?');
         this.sleep();
       }
     } else {
-      console.log('He is dead.');
+      // console.log('He is dead.');
     }
   }
 
