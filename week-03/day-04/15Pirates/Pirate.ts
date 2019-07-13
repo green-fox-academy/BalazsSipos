@@ -51,7 +51,7 @@ class Pirate {
     }
   }
 
-  // Fight, after that 1/3 chance pirate1 will die, 1/3 pirate2 dies, 1/3 change both sleeps out
+  // Fight: 1/3 chance pirate1 will die, 1/3 pirate2 dies, 1/3 change both sleeps out
   brawl(otherPir: Pirate): void {
     if (this.state !== 'died' && otherPir.state !== 'died') {
       let chance: number = Math.ceil(Math.random() * 3); // a number between 1 and 3
@@ -67,8 +67,10 @@ class Pirate {
   }
 }
 
-let pir1 = new Pirate();
-console.log(pir1);
+export { Pirate };
+
+// let pir1 = new Pirate();
+// console.log(pir1);
 
 // pir1.drinkSomeRum();
 // pir1.drinkSomeRum();
