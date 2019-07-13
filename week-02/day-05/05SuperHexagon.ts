@@ -62,5 +62,5 @@ let drawlines = {
 
 }
 
-drawlines.initialize(8);
+drawlines.initialize(4);
 drawlines.drawAllHexagons();
