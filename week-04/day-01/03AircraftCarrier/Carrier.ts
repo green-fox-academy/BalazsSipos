@@ -19,7 +19,6 @@ class Carrier {
 
   // Fills the plane, if its priority is the same as the input parameter
   fill(isPriority: boolean) {
-    // First fill the priority planes
     this.aircrafts.forEach(element => {
       if (element.priority === isPriority) {
         try {
