@@ -13,7 +13,7 @@ class Apple {
     return summary;
   }
 
-  anagramChecker(str1: string, str2: string) {
+  palindromChecker(str1: string, str2: string) {
     let str2Reversed = str2.split('').reverse().join('');
     // console.log(str2.split('').reverse());
     return str1 === str2Reversed;
@@ -30,11 +30,20 @@ class Apple {
       }
     }
     return letterCounter;
+  }
 
+  fibonacci(nmb: number) {
+    if (nmb === 1) {
+      return 0;
+    } else if(nmb === 2) {
+      return 1;
+    } else {
+      return this.fibonacci(nmb-1) + this.fibonacci(nmb-2);
+    }
   }
 }
 
-let apple: Apple = new Apple();
-console.log(apple.anagramChecker('abc', 'cba'));
+// let apple: Apple = new Apple();
+// console.log(apple.anagramChecker('abc', 'cba'));
 
 export { Apple };
