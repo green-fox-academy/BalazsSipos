@@ -26,3 +26,8 @@ test('check anagram', t => {
   t.false(apple.anagramChecker('abc', 'cbsa'));
   t.end();
 });
+
+test('number of letter', t => {
+  t.deepEqual(apple.charDictionary('caaabcc'), {'a': 3, 'b': 1, 'c': 3});
+  t.end();
+});
