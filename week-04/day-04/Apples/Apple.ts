@@ -5,8 +5,12 @@ class Apple {
     return 'apple';
   }
 
-  sum(int1: number, int2: number) {
-    return int1 + int2;
+  sum(ints: number[]): number {
+    let summary: number = 0;
+    ints.forEach(element => {
+      summary += element;
+    });
+    return summary;
   }
 }
 

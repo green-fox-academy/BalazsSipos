@@ -14,6 +14,8 @@ test('check getApple\'s result', t => {
 
 test('check sum function', t => {
   const apple = new Apple();
-  t.equal(apple.sum(1,2), 3);
+  t.equal(apple.sum([]), 0);
+  t.equal(apple.sum([10]), 10);
+  t.equal(apple.sum([1,2]), 3);
   t.end();
 });
