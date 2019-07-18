@@ -5,19 +5,26 @@ export function add(a: number, b: number): number {
 }
 
 export function maxOfThree(a: number, b: number, c: number): number {
-  if (a > b) {
-    return a;
-  } else {
-    return c;
-  }
+  return Math.max.apply(null, [a,b,c]);
 };
 
 export function median(pool: number[]): number {
-  return pool[Math.floor((pool.length - 1) / 2)];
+  if(pool.length!== 0) {
+    const mid = Math.floor(pool.length / 2);
+    let nums: number[] = pool.sort((a, b) => a - b);
+    if(pool.length % 2 !== 0) {
+      return nums[mid];
+    } else {
+      return (nums[mid - 1] + nums[mid]) / 2;
+    }
+  } else {
+    return 0;
+  }
+  // return pool[Math.floor((pool.length - 1) / 2)];
 }
 
 export function isVowel(character: string): boolean {
-  return ['a', 'u', 'o', 'e', 'i'].some(vowel => vowel === character);
+  return ['a', 'u', 'o', 'e', 'i'].some(vowel => vowel === character.toLowerCase());
 }
 
 export function translate(hungarian: string): string {
