@@ -1,15 +1,14 @@
 'use strict';
 
-import rotateMatrix from './matrixRotation';
+import { filterOutSwearWorld} from './swearWords';
+import { iterateSwearWords} from './swearWords';
+import { readContent} from './swearWords';
 import { test } from 'tape';
-// const apple: Apple = new Apple();
 
-test('check invalid input error handling', (t: any) => {
+test('file opening', (t: any) => {
 
-  let inputMatrix: number[][];
-  t.equal(rotateMatrix(inputMatrix), undefined);
-  t.equal(rotateMatrix([]), undefined);
-  t.equal(rotateMatrix([[1,2],[1,2,3]]), undefined);
+  t.equals(readContent('input2.txt'), 'testtesttest');
+  t.equals(readContent('wrongfilename'), undefined);
   t.end();
 });
 
