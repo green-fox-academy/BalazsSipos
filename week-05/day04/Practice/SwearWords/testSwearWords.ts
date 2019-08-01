@@ -7,14 +7,15 @@ import { test } from 'tape';
 
 test('file opening', (t: any) => {
 
-  t.equals(readContent('input2.txt'), 'testtesttest');
+  t.equals(readContent('input2.txt'), 'abcFuckabc abcfuckdef def bloody edf\r\nfuck\r\ntrdshits\r\nfucker fgrcunt');
   t.equals(readContent('wrongfilename'), undefined);
   t.end();
 });
 
-test('check normal rotate functionality', (t: any) => {
+test('check normal filtering functionality', (t: any) => {
 
-  t.deepEqual(rotateMatrix([[1,2,3],[4,5,6],[7,8,9]]), [[7,4,1],[8,5,2],[9,6,3]]);
-  t.deepEqual(rotateMatrix([[1,2,3,4],[5,6,7,8],[1,3,5,7],[2,4,6,8]]), [[2,1,5,1],[4,3,6,2],[6,5,7,3],[8,7,8,4]]);
+  t.equals(filterOutSwearWorld('asdf test dsf testa', 'test'), 'asdf  dsf a');
+  t.equals(iterateSwearWords('input2.txt'), 7);
+  t.equals(iterateSwearWords('input3.txt'), undefined);
   t.end();
 });

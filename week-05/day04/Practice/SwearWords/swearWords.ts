@@ -5,23 +5,28 @@ let changedWordCounter: number = 0;
 
 function readContent(fileName: string): string {
   try {
-    return fs.readFileSync(fileName, 'utf-8');
+    return fs.readFileSync('./' + fileName, 'utf-8');
   } catch (error) {
     console.log('File cannot be accessed!');
     return undefined;
   }
 }
 
-function iterateSwearWords(fileName: string): void {
+function iterateSwearWords(fileName: string): number {
   const swearWords: string[] = ['fucker', 'bloody', 'cock', 'shit', 'fUck', 'fuckstick', 'asshole', 'dick', 'piss', 'cunt'];
   
   let content: string = readContent('./' + fileName);
   
-  content = content.toLocaleLowerCase();
+  if(content !== undefined) {
+    content = content.toLowerCase();
+    
+    swearWords.forEach(swearWord => {
+      content = filterOutSwearWorld(content, swearWord.toLowerCase());
+    });
   
-  swearWords.forEach(swearWord => {
-    content = filterOutSwearWorld(content, swearWord.toLocaleLowerCase());
-  });
+    return changedWordCounter;
+  }
+  return undefined;
 }
 
 // Write a method which can read and parse a file containing not so family friendly text. The method must remove all the given words from the file and return the amount of the removed words.
@@ -36,9 +41,10 @@ function filterOutSwearWorld(inputString: string, swearWord: string): string {
   return inputString;
 }
 
-iterateSwearWords('input2.txt');
-console.log(changedWordCounter);
+console.log(iterateSwearWords('input2.txt'));
+// console.log(changedWordCounter);
 
 export { filterOutSwearWorld };
 export { iterateSwearWords };
 export { readContent };
+export { changedWordCounter };
