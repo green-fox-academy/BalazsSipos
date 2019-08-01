@@ -1,6 +1,7 @@
 {
-  "name": "swearwords",
+  "name": "day04",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +10,5 @@
   "license": "ISC",
   "devDependencies": {
     "tape": "^4.11.0"
-  },
-  "description": "",
-  "dependencies": {
-    "@types/tape": "^4.2.33"
   }
 }

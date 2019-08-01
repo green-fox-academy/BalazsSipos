@@ -1,9 +1,13 @@
 'use strict';
 
+// npm init
+// npm install --save @types/tape
+// if strict mode, tsc --init, and comment out the strict part
+import test = require('tape');
 import { filterOutSwearWorld} from './swearWords';
 import { iterateSwearWords} from './swearWords';
 import { readContent} from './swearWords';
-import { test } from 'tape';
+// import { test } from 'tape';
 
 test('file opening', (t: any) => {
 
