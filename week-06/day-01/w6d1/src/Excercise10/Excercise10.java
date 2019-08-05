@@ -1,9 +1,8 @@
 package Excercise10;
 
-import Excercise7.Excercise7;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -12,8 +11,6 @@ public class Excercise10 {
         //Create a Fox class with 3 properties:name, color and age Fill a list with at least 5 foxes and:
         //
         //Write a Stream Expression to find the foxes with green color!
-        //Write a Stream Expression to find the foxes with green color, and age less then 5 years!
-        //Write a Stream Expression to find the frequency of foxes by color!
 
         Excercise10 excercise10 = new Excercise10();
 
@@ -24,6 +21,18 @@ public class Excercise10 {
                                                 .collect(Collectors.toList());
 
         System.out.println(namesOfGreenFoxes);
+
+        //Write a Stream Expression to find the foxes with green color, and age less then 5 years!
+        List<String> namesOfGreenYoungFoxes = foxes.stream()
+                                                    .filter(fox -> (fox.color.equals("green") && fox.age < 5))
+                                                    .map(fox -> fox.name)
+                                                    .collect(Collectors.toList());
+        System.out.println(namesOfGreenYoungFoxes);
+
+        //Write a Stream Expression to find the frequency of foxes by color!
+        Map<Object, Long> numberByColor = foxes.stream()
+                                                    .collect(Collectors.groupingBy(c -> c.color, Collectors.counting()));
+        System.out.println(numberByColor);
     }
 
     private List<Fox> createFoxes() {
