@@ -2,6 +2,7 @@
 
 // npm init
 // npm install --save @types/tape
+// npm install tape --save-dev
 // if strict mode, tsc --init, and comment out the strict part
 import test = require('tape');
 import { filterOutSwearWorld} from './swearWords';
