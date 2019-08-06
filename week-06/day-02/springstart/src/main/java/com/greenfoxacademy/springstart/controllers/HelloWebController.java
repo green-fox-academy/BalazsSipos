@@ -16,12 +16,12 @@ public class HelloWebController {
     @GetMapping("/web/greeting")
     public String greeting(Model model, @RequestParam("name") String userName, @RequestParam("lang") String lang, @RequestParam("color") String color) {
         model.addAttribute("name", userName);
-        model.addAttribute("greetingCounter", atomicLong.getAndIncrement());
+        model.addAttribute("greetingCounter", this.FizzBuzzWoof(atomicLong.getAndIncrement()));
         String[] hellos = {"Hello", "Guten Tag", "Szia"};
         model.addAttribute("names", hellos);
         model.addAttribute("greetingLang", this.greetingSelector(lang));
         model.addAttribute("fontColor", "color:" + color);
-        return "greeting2";
+        return "greeting";
     }
 
     private String greetingSelector(String lang) {
@@ -31,5 +31,25 @@ public class HelloWebController {
         langGreetingsMap.put("hungarian", "Szia");
 
         return langGreetingsMap.get(lang);
+    }
+
+    private String FizzBuzzWoof(Long number) {
+        if(number%3 == 0 && number%5 == 0 && number%7 == 0) {
+            return "FizzBuzzWoof";
+        } else if(number%3 == 0 && number%5 == 0) {
+            return "FizzBuzz";
+        } else if(number%3 == 0 && number%7 == 0) {
+            return "FizzWoof";
+        } else if(number%5 == 0 && number%7 == 0) {
+            return "BuzzWoof";
+        } else if(number%3 == 0) {
+            return "Fizz";
+        } else if(number%5 == 0) {
+            return "Buzz";
+        } else if(number%7 == 0) {
+            return "Woof";
+        } else {
+            return number.toString();
+        }
     }
 }
