@@ -5,6 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '! This site was loaded ' + ${greetingCounter} + ' times since last server start.'"></p>
+    <p th:attr="style=${fontColor}" th:text="${greetingLang} + ', ' + ${name} + '! This site was loaded ' + ${greetingCounter} + ' times since last server start.'"></p>
+    <ul th:each="name : ${names}">
+        <li th:text="${name}"></li>
+    </ul>
 </body>
 </html>
