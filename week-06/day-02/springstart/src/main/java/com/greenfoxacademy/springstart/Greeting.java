@@ -1,16 +1,16 @@
 package com.greenfoxacademy.springstart;
 
 public class Greeting {
-    long id;
+    long greetCount;
     String content;
 
-    public Greeting(long id, String content) {
-        this.id = id;
+    public Greeting(long greetCount, String content) {
+        this.greetCount = greetCount;
         this.content = content;
     }
 
-    public long getId() {
-        return id;
+    public long getGreetCount() {
+        return greetCount;
     }
 
     public String getContent() {
