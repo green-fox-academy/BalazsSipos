@@ -1,0 +1,37 @@
+body {
+    background-color: dodgerblue;
+}
+table {
+    text-align: left;
+    font-size: 30px;
+    border-radius: 10px;
+    border-collapse: collapse;
+    overflow: hidden;
+    color: gray;
+}
+
+th, td {
+    padding: 25px;
+}
+
+table, th, td {
+    border: gray 2px solid;
+
+}
+
+th {
+    background-color: black;
+
+}
+
+td {
+    n
+}
+
+tr:nth-child(even) {
+    background: #CCC;
+}
+
+tr:nth-child(odd) {
+    background: #ffffff;
+}
