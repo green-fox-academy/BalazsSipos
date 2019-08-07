@@ -1,6 +1,7 @@
 body {
     background-color: dodgerblue;
 }
+
 table {
     text-align: left;
     font-size: 30px;
@@ -22,10 +23,6 @@ table, th, td {
 th {
     background-color: black;
 
-}
-
-td {
-    n
 }
 
 tr:nth-child(even) {
