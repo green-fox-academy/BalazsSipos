@@ -1,0 +1,39 @@
+body {
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
+}
+
+form {
+    padding: 50px;
+    background-color: white;
+    display: inline-block;
+}
+
+div.label {
+    font-size: 7px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.button {
+    background-color: dimgrey;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+}
+
+.right {
+    text-align: right;
+    font-size: 8px;
+    color: gray;
+}
+
+input {
+    border: #edf0ee 1px solid;
+}
+
+input:focus {
+    border: lightgreen 1px solid;
+}
