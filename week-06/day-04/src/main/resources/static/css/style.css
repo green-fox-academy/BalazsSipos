@@ -1,0 +1,54 @@
+.special-blue {
+    color: #69effe;
+}
+
+header{
+    font-size: 40px;
+}
+
+a.header {
+    background-color: #f1453d;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+
+}
+
+hr {
+    /*display: block;*/
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+table, tr, th, td {
+    border: black 1px solid;
+}
+
+th {
+    background-color: #69effe;
+    padding: 20px;
+}
+
+table {
+    /*margin: 10px;*/
+    border-collapse: collapse;
+    /*margin: 20px;*/
+}
+
+.full-width {
+    width: 100%;
+    /*overflow: auto;*/
+}
+
+.menu a {
+    /*float: left;*/
+}
+
+.table-content, .search-bar{
+    margin: 20px;
+}
+
