@@ -23,6 +23,14 @@ public class ShopItems {
     return shopItemsList;
   }
 
+  public ArrayList<ShopItem> getShopItemsListInForeignCurrency(int rate) {
+    ArrayList<ShopItem> itemList = this.getShopItemsList();
+    ArrayList<ShopItem> itemList2 = itemList.stream()
+            .peek(shopItem -> shopItem.setPrice(shopItem.getPrice()/rate))
+            .collect(Collectors.toCollection(ArrayList::new));
+    return itemList2;
+  }
+
   public ArrayList<ShopItem> getAvailableWebshopItems() {
     //ArrayList<ShopItem> itemList = new ArrayList<>();
     ArrayList<ShopItem> itemList = this.getShopItemsList().stream()
@@ -71,4 +79,26 @@ public class ShopItems {
             .get();
     return mostExpensive;
   }
+
+  public ArrayList<ShopItem> getShopitemsBasedOnCategory(String categoryName) {
+    ArrayList<ShopItem> itemList = new ArrayList<>();
+
+//    System.out.println(categoryName);
+//    System.out.println(this.getShopItemsList().get(0).getType());
+//    return itemList;
+
+    if(categoryName.length() != 0) {
+      itemList = this.getShopItemsList().stream()
+              .filter(shopItem -> shopItem.getType().contains(categoryName))
+              .collect(Collectors.toCollection(ArrayList::new));
+    } else {
+      itemList = this.getShopItemsList();
+    }
+    return itemList;
+  }
+
+//  public String[] categoriesList getListOfCategories() {
+//    String[] listOfCategories = this.getShopItemsList().stream()
+//            .distinct()
+//  }
 }

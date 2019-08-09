@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Webshop</title>
+    <base href="/"/>
     <link th:href="@{css/style.css}" rel="stylesheet"/>
 </head>
 <body>
@@ -17,14 +18,13 @@
 <hr class="special-blue">
 
 <div class="menu full-width">
-    <a class="header" href="/only-available">ONLY AVAILABLE</a>
-    <a class="header" href="/cheapest-first">CHEAPEST FIRST</a>
-    <a class="header" href="/contains-nike">CONTAINS NIKE</a>
-    <a class="header" href="/average-stock">AVERAGE STOCK</a>
-    <a class="header" href="/most-expensive">MOST EXPENSIVE AVAILABLE</a>
+    <span th:each="category : ${categoriesList}">
+        <a class="header" th:text="${category}" th:href="@{'/filter-by-type/' + ${category}}"></a>
+    </span>
+    <a class="header" href="/price-in-eur">EURO</a>
 </div>
 <div class="search-bar">
-    <form action="#" th:action="@{/webshop}" method="post" modelAttribute="shopItem">
+    <form action="/webshop" method="post" modelAttribute="shopItem">
         <label class="label">Search For:</label>
         <input type="text" name="searchWord" />
 

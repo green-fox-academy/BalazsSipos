@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 public class WebshopController {
   private ShopItems shopItems = new ShopItems();
@@ -17,6 +21,8 @@ public class WebshopController {
           {"Wokin", "Chicken with fried rice and wokin sauce", "119", "100", "Beverages and Snacks"},
           {"T-shirt", "Blue with a corgi on a bike", "300", "1", "Clothes and Shoes"}
   };
+  private List<String> categoriesList = Arrays.asList("Clothes and Shoes", "Electronics", "Beverages and Snacks");//{"Clothes and Shoes", "Electronics", "Beverages and Snacks"};
+  private int eurCurrencyRate = 300;
 
   public WebshopController() {
     // Build the shopItems filed
@@ -40,6 +46,7 @@ public class WebshopController {
   @GetMapping("/more-filters")
   public String showMoreFilters(Model model) {
     model.addAttribute("shopItems", this.shopItems.getShopItemsList());
+    model.addAttribute("categoriesList", this.categoriesList);
     return "more-filters";
   }
 
@@ -74,6 +81,15 @@ public class WebshopController {
     return "one-line-content";
   }
 
+  @GetMapping("/filter-by-type/{type}")
+  public String getFilteredByCategoryList(@PathVariable("type") String categoryType, Model model) {
+//    System.out.println(type);
+    System.out.println(categoryType);
+    model.addAttribute("shopItems", this.shopItems.getShopitemsBasedOnCategory(categoryType));
+    model.addAttribute("categoriesList", this.categoriesList);
+    return "more-filters";
+  }
+
 //  @PostMapping("/webshop")
 //  public String filterToSearchedItems(@ModelAttribute("shopItem") ShopItem shopItem) {
 //    //model.addAttribute("simpleContent", shopItem.getName());
@@ -83,16 +99,14 @@ public class WebshopController {
 
   @PostMapping("/webshop")
   public String filterToSearchedItems(@RequestParam("searchWord") String searchWord, Model model) {
-    //model.addAttribute("simpleContent", shopItem.getName());
-    System.out.println(searchWord);
-//    System.out.println(name);
-//    ShopItem shopItem = new ShopItem(name, description);
-//    System.out.println(shopItem.toString());
-//    System.out.println(shopItem.getName());
-//    System.out.println(shopItem.getPrice());
-//    System.out.println(shopItem.getQuantityInStock());
     model.addAttribute("shopItems", this.shopItems.getWebshopItemsContainSearch(searchWord));
     return "index";
+  }
+
+  @GetMapping("/price-in-eur")
+  public String getShopItemsListInForeignCurrency(Model model) {
+    model.addAttribute("shopItems", this.shopItems.getShopItemsListInForeignCurrency(this.eurCurrencyRate));
+    return "more-filters";
   }
 
 //  @PostMapping("/webshop")

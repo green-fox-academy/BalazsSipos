@@ -38,4 +38,8 @@ public class ShopItem{
     public String getType() {
         return type;
     }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
