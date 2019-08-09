@@ -45,6 +45,19 @@ public class ShopItems {
     return itemList;
   }
 
+  public ArrayList<ShopItem> getWebshopItemsContainSearch(String searchWord) {
+    ArrayList<ShopItem> itemList = new ArrayList<>();
+
+    if(searchWord.length() != 0) {
+      itemList = this.getShopItemsList().stream()
+              .filter(shopItem -> shopItem.getName().toLowerCase().contains(searchWord) || shopItem.getDescription().toLowerCase().contains(searchWord))
+              .collect(Collectors.toCollection(ArrayList::new));
+    } else {
+      itemList = this.getShopItemsList();
+    }
+    return itemList;
+  }
+
   public double calculateAverageStock() {
     double sumStock = this.getShopItemsList().stream()
             .mapToDouble(shopItem -> shopItem.getQuantityInStock())

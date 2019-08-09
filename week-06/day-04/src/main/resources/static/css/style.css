@@ -2,7 +2,13 @@
     color: #69effe;
 }
 
-header{
+a {
+    color: #69effe;
+}
+
+
+
+#header{
     font-size: 40px;
 }
 
@@ -50,5 +56,13 @@ table {
 
 .table-content, .search-bar{
     margin: 20px;
+}
+
+#header #second-menu {
+    float: right;
+}
+
+#header #first {
+    float: left;
 }
 

@@ -5,26 +5,23 @@ import balazssipos.webshop.models.ShopItem;
 import balazssipos.webshop.services.ShopItems;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class WebshopController {
   private ShopItems shopItems = new ShopItems();
   private String[][] initializerArray = {
-          {"Running shoes", "Nike running shoes for every day sport", "1000", "5"},
-          {"Printer", "Some HP printer, that will print pages", "3000", "2"},
-          {"Coca cola", "0.5l standard coke", "25", "0"},
-          {"Wokin", "Chicken with fried rice and wokin sauce", "119", "100"},
-          {"T-shirt", "Blue with a corgi on a bike", "300", "1"}
+          {"Running shoes", "Nike running shoes for every day sport", "1000", "5", "Clothes and Shoes"},
+          {"Printer", "Some HP printer, that will print pages", "3000", "2", "Electronics"},
+          {"Coca cola", "0.5l standard coke", "25", "0", "Beverages and Snacks"},
+          {"Wokin", "Chicken with fried rice and wokin sauce", "119", "100", "Beverages and Snacks"},
+          {"T-shirt", "Blue with a corgi on a bike", "300", "1", "Clothes and Shoes"}
   };
 
   public WebshopController() {
     // Build the shopItems filed
     for (String[] item : this.initializerArray) {
-      this.shopItems.addItem(new ShopItem(item[0], item[1], Integer.parseInt(item[2]), Integer.parseInt(item[3])));
+      this.shopItems.addItem(new ShopItem(item[0], item[1], Integer.parseInt(item[2]), Integer.parseInt(item[3]), item[4]));
     }
   }
 
@@ -38,6 +35,12 @@ public class WebshopController {
   public String showWebshopItems(Model model) {
     model.addAttribute("shopItems", this.shopItems.getShopItemsList());
     return "index";
+  }
+
+  @GetMapping("/more-filters")
+  public String showMoreFilters(Model model) {
+    model.addAttribute("shopItems", this.shopItems.getShopItemsList());
+    return "more-filters";
   }
 
   @GetMapping("/only-available")
@@ -72,15 +75,29 @@ public class WebshopController {
   }
 
 //  @PostMapping("/webshop")
-//  public String filterToSearchedItems(@ModelAttribute ShopItem shopItem) {
+//  public String filterToSearchedItems(@ModelAttribute("shopItem") ShopItem shopItem) {
 //    //model.addAttribute("simpleContent", shopItem.getName());
-//    System.out.println(shopItem.getName());
+//    System.out.println(shopItem.getDescription());
 //    return "index";
 //  }
 
   @PostMapping("/webshop")
-  public String sendForm(@ModelAttribute("formData") FormData formData) {
-    System.out.println(formData.getSearchField());
+  public String filterToSearchedItems(@RequestParam("searchWord") String searchWord, Model model) {
+    //model.addAttribute("simpleContent", shopItem.getName());
+    System.out.println(searchWord);
+//    System.out.println(name);
+//    ShopItem shopItem = new ShopItem(name, description);
+//    System.out.println(shopItem.toString());
+//    System.out.println(shopItem.getName());
+//    System.out.println(shopItem.getPrice());
+//    System.out.println(shopItem.getQuantityInStock());
+    model.addAttribute("shopItems", this.shopItems.getWebshopItemsContainSearch(searchWord));
     return "index";
   }
+
+//  @PostMapping("/webshop")
+//  public String sendForm(@ModelAttribute("formData") FormData formData) {
+//    System.out.println(formData.getSearchField());
+//    return "index";
+//  }
 }

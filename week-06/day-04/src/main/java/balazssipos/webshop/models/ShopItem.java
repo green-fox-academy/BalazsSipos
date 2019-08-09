@@ -5,12 +5,18 @@ public class ShopItem{
     private String description;
     private int price;
     private int quantityInStock;
+    private String type;
 
-    public ShopItem(String name, String description, int price, int quantityInStock) {
+    public ShopItem(String name, String description, int price, int quantityInStock, String type) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantityInStock = quantityInStock;
+        this.type = type;
+    }
+
+    public ShopItem(String name, String description) {
+        this(name, description, 0, 0, "other type");
     }
 
     public String getName() {
@@ -25,11 +31,11 @@ public class ShopItem{
         return price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getQuantityInStock() {
         return quantityInStock;
+    }
+
+    public String getType() {
+        return type;
     }
 }
