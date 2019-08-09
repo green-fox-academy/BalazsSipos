@@ -23,12 +23,12 @@ public class ShopItems {
     return shopItemsList;
   }
 
-  public ArrayList<ShopItem> getShopItemsListInForeignCurrency(int rate) {
-    ArrayList<ShopItem> itemList = this.getShopItemsList();
-    ArrayList<ShopItem> itemList2 = itemList.stream()
+  public ArrayList<ShopItem> getShopItemsListInOtherCurrency(double rate) {
+    ArrayList<ShopItem> itemList = this.getShopItemsList().stream()
             .peek(shopItem -> shopItem.setPrice(shopItem.getPrice()/rate))
             .collect(Collectors.toCollection(ArrayList::new));
-    return itemList2;
+
+    return itemList;
   }
 
   public ArrayList<ShopItem> getAvailableWebshopItems() {
@@ -41,7 +41,7 @@ public class ShopItems {
 
   public ArrayList<ShopItem> cheapestFirst() {
     ArrayList<ShopItem> sortedList = this.getShopItemsList().stream()
-            .sorted(Comparator.comparingInt(ShopItem::getPrice))
+            .sorted(Comparator.comparingDouble(ShopItem::getPrice))
             .collect(Collectors.toCollection(ArrayList::new));
     return sortedList;
   }

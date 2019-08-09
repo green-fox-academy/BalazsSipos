@@ -21,13 +21,16 @@ public class WebshopController {
           {"Wokin", "Chicken with fried rice and wokin sauce", "119", "100", "Beverages and Snacks"},
           {"T-shirt", "Blue with a corgi on a bike", "300", "1", "Clothes and Shoes"}
   };
-  private List<String> categoriesList = Arrays.asList("Clothes and Shoes", "Electronics", "Beverages and Snacks");//{"Clothes and Shoes", "Electronics", "Beverages and Snacks"};
-  private int eurCurrencyRate = 300;
+  private List<String> categoriesList = Arrays.asList("Clothes and Shoes", "Electronics", "Beverages and Snacks");
+  //{"Clothes and Shoes", "Electronics", "Beverages and Snacks"};
+  private double eurCurrencyRate = 250;
+  private boolean isInEuro = false;
 
   public WebshopController() {
     // Build the shopItems filed
     for (String[] item : this.initializerArray) {
-      this.shopItems.addItem(new ShopItem(item[0], item[1], Integer.parseInt(item[2]), Integer.parseInt(item[3]), item[4]));
+      this.shopItems.addItem(new ShopItem(item[0], item[1], Integer.parseInt(item[2]), Integer.parseInt(item[3]),
+              item[4]));
     }
   }
 
@@ -77,7 +80,8 @@ public class WebshopController {
   @GetMapping("/most-expensive")
   public String getMostExpensiveProduct(Model model) {
     ShopItem mostExpensiveItem = this.shopItems.getMostExpensiveItem();
-    model.addAttribute("simpleContent", "Most expensive product: " + mostExpensiveItem.getName() + ", with a price of " + mostExpensiveItem.getPrice() + ".");
+    model.addAttribute("simpleContent", "Most expensive product: " + mostExpensiveItem.getName() + ", with a price of" +
+            " " + mostExpensiveItem.getPrice() + ".");
     return "one-line-content";
   }
 
@@ -97,15 +101,53 @@ public class WebshopController {
 //    return "index";
 //  }
 
+
+
+  @GetMapping("/price-in-eur")
+  public String getShopItemsListInForeignCurrency(Model model) {
+    System.out.println(this.isInEuro);
+    if (this.isInEuro) {
+      System.out.println("eur if ag futott");
+      model.addAttribute("shopItems", this.shopItems.getShopItemsList());
+    } else {
+      System.out.println("eur else ag futott");
+      model.addAttribute("shopItems", this.shopItems.getShopItemsListInOtherCurrency(this.eurCurrencyRate));
+      this.isInEuro = true;
+    }
+
+    model.addAttribute("categoriesList", this.categoriesList);
+
+    return "more-filters";
+  }
+
+  @GetMapping("/price-in-original")
+  public String getShopItemsListInOriginalCurrency(Model model) {
+    System.out.println(this.isInEuro);
+    if (!this.isInEuro) {
+      model.addAttribute("shopItems", this.shopItems.getShopItemsList());
+      System.out.println("huf if ag futott");
+    } else {
+      model.addAttribute("shopItems", this.shopItems.getShopItemsListInOtherCurrency(1 / this.eurCurrencyRate));
+      this.isInEuro = false;
+      System.out.println("huf else ag futott");
+    }
+
+    model.addAttribute("categoriesList", this.categoriesList);
+
+    return "more-filters";
+  }
+
   @PostMapping("/webshop")
   public String filterToSearchedItems(@RequestParam("searchWord") String searchWord, Model model) {
     model.addAttribute("shopItems", this.shopItems.getWebshopItemsContainSearch(searchWord));
     return "index";
   }
 
-  @GetMapping("/price-in-eur")
-  public String getShopItemsListInForeignCurrency(Model model) {
-    model.addAttribute("shopItems", this.shopItems.getShopItemsListInForeignCurrency(this.eurCurrencyRate));
+  @PostMapping("/filter-by-price")
+  public String filterToSearchedPrice(@RequestParam("above") String above, @RequestParam("searchedPrice") int searchedPrice) {
+    System.out.println(above);
+    System.out.println(searchedPrice);
+
     return "more-filters";
   }
 

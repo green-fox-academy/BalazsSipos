@@ -22,13 +22,17 @@
         <a class="header" th:text="${category}" th:href="@{'/filter-by-type/' + ${category}}"></a>
     </span>
     <a class="header" href="/price-in-eur">EURO</a>
+    <a class="header" href="/price-in-original">ORIGINAL CURRENCY</a>
 </div>
 <div class="search-bar">
     <form action="/webshop" method="post" modelAttribute="shopItem">
+        <input class="button" type="submit" value="Above" name="above">
+        <input class="button" type="submit" value="Below" name="below">
+        <input class="button" type="submit" value="Exactly" name="exactly">
         <label class="label">Search For:</label>
-        <input type="text" name="searchWord" />
+        <input type="text" name="searchedPrice" />
 
-        <input class="button" type="submit" value="Search">
+
     </form>
 
 </div>

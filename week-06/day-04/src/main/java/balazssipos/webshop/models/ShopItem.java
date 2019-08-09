@@ -3,11 +3,11 @@ package balazssipos.webshop.models;
 public class ShopItem{
     private String name;
     private String description;
-    private int price;
+    private double price;
     private int quantityInStock;
     private String type;
 
-    public ShopItem(String name, String description, int price, int quantityInStock, String type) {
+    public ShopItem(String name, String description, double price, int quantityInStock, String type) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -27,7 +27,7 @@ public class ShopItem{
         return description;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -39,7 +39,12 @@ public class ShopItem{
         return type;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "name: "  + this.getName() + ", description: " + this.getDescription() + ", type: " + this.getType() + ", price: " + this.getPrice() + ", quantity: " + this.getQuantityInStock();
     }
 }
