@@ -97,7 +97,24 @@ public class ShopItems {
     return itemList;
   }
 
-//  public String[] categoriesList getListOfCategories() {
+  public ArrayList<ShopItem> getShopitemsBasedOnPrice(String operand, int price) {
+
+    ArrayList<ShopItem> itemList = this.getShopItemsList().stream()
+            .filter(shopItem -> {
+              boolean priceCondition = false;
+              if(operand.equals("Above")) {
+                priceCondition = shopItem.getPrice() > price;
+              } else if(operand.equals("Below")) {
+                priceCondition = shopItem.getPrice() < price;
+              } else if(operand.equals("Exactly")) {
+                priceCondition = shopItem.getPrice() == price;
+              }
+              return priceCondition;
+            })
+            .collect(Collectors.toCollection(ArrayList::new));
+    return itemList;
+  }
+  //  public String[] categoriesList getListOfCategories() {
 //    String[] listOfCategories = this.getShopItemsList().stream()
 //            .distinct()
 //  }

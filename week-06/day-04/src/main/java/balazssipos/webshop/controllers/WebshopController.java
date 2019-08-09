@@ -125,11 +125,11 @@ public class WebshopController {
     System.out.println(this.isInEuro);
     if (!this.isInEuro) {
       model.addAttribute("shopItems", this.shopItems.getShopItemsList());
-      System.out.println("huf if ag futott");
+//      System.out.println("huf if ag futott");
     } else {
       model.addAttribute("shopItems", this.shopItems.getShopItemsListInOtherCurrency(1 / this.eurCurrencyRate));
       this.isInEuro = false;
-      System.out.println("huf else ag futott");
+//      System.out.println("huf else ag futott");
     }
 
     model.addAttribute("categoriesList", this.categoriesList);
@@ -144,10 +144,14 @@ public class WebshopController {
   }
 
   @PostMapping("/filter-by-price")
-  public String filterToSearchedPrice(@RequestParam("above") String above, @RequestParam("searchedPrice") int searchedPrice) {
-    System.out.println(above);
+  public String filterToSearchedPrice(Model model, @RequestParam("operand") String operand, @RequestParam("searchedPrice") int searchedPrice) {
+    System.out.println(operand);
+//    System.out.println(below);
     System.out.println(searchedPrice);
-
+    if(operand.equals("Above") || operand.equals("Below") || operand.equals("Exactly")) {
+      model.addAttribute("shopItems", this.shopItems.getShopitemsBasedOnPrice(operand, searchedPrice));
+    }
+    model.addAttribute("categoriesList", this.categoriesList);
     return "more-filters";
   }
 

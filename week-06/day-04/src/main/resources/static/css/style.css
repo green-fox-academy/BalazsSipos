@@ -6,13 +6,11 @@ a {
     color: #69effe;
 }
 
-
-
 #header{
     font-size: 40px;
 }
 
-a.header {
+a.header, input[type=submit] {
     background-color: #f1453d;
     color: white;
     padding: 5px;

@@ -25,10 +25,10 @@
     <a class="header" href="/price-in-original">ORIGINAL CURRENCY</a>
 </div>
 <div class="search-bar">
-    <form action="/webshop" method="post" modelAttribute="shopItem">
-        <input class="button" type="submit" value="Above" name="above">
-        <input class="button" type="submit" value="Below" name="below">
-        <input class="button" type="submit" value="Exactly" name="exactly">
+    <form action="/filter-by-price" method="post" modelAttribute="shopItem">
+        <input class="button header" type="submit" value="Above" name="operand">
+        <input class="button" type="submit" value="Below" name="operand">
+        <input class="button" type="submit" value="Exactly" name="operand">
         <label class="label">Search For:</label>
         <input type="text" name="searchedPrice" />
 
