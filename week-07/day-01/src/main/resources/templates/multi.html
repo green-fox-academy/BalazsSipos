@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi Accounts</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Balance</th>
+                <th>Type</th>
+                <th>IsKing</th>
+                <th>index</th>
+            </tr>
+            <tr th:classappend="${bankAccount.isKing()} ? king : nonking" th:each="bankAccount : ${bankAccountList}">
+                <td th:text="${bankAccount.name}"></td>
+                <td th:text="${bankAccount.balance}"></td>
+                <td th:text="${bankAccount.animalType}"></td>
+                <td th:text="${bankAccount.isKing()}"></td>
+                <td th:text="${bankAccountStat.index}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
