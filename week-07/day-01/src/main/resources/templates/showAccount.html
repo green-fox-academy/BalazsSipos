@@ -9,6 +9,7 @@
         <li th:text="|Name: ${bankAccount.name}|"></li>
         <li th:text="|Balance: ${#numbers.formatDecimal(bankAccount.balance, 0, 'COMMA', 2, 'POINT')} Zebra|"></li>
         <li th:text="|Animal type: ${bankAccount.animalType}|"></li>
+        <li th:text="|Is King: ${bankAccount.isKing()}|"></li>
     </ul>
 </body>
 </html>

@@ -23,6 +23,14 @@
                 <td th:text="${bankAccountStat.index}"></td>
             </tr>
         </table>
+        <div>
+            <form action="/show/multi/increaseBalance" method="post">
+                <select name="selector">
+                    <option th:each="bankAccount : ${bankAccountList}" th:value="${bankAccountStat.index}" th:text="${bankAccount.name}"></option>
+                </select>
+                <button type="submit">Add Balance</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Account</title>
+</head>
+<body>
+    <div>
+<!--        <form action="#" th:action="@{/show/multi/add}" th:object="${bankAccount}" method="post">-->
+<!--            <label for="animalName">Animal Name</label>-->
+<!--            <input type="text" id="animalName" name="animalName" th:field="*{name}" required />-->
+<!--            <label for="balance">Balance</label>-->
+<!--            <input type="text" id="balance" name="balance" th:field="*{balance}" required />-->
+<!--            <label for="animalType">Animal Type</label>-->
+<!--            <input type="text" id="animalType" name="animalType" th:field="*{animalType}" required />-->
+<!--            <input type="hidden" id="isKing" name="isKing" th:field="*{isKing}" required value="false"/>-->
+<!--            <button type="submit">Add new animal</button>-->
+<!--        </form>-->
+        <form action="#" th:action="@{/show/multi/add}" method="post">
+            <label for="animalName">Animal Name</label>
+            <input type="text" id="animalName" name="animalName" required />
+            <label for="balance">Balance</label>
+            <input type="text" id="balance" name="balance" required />
+            <label for="animalType">Animal Type</label>
+            <input type="text" id="animalType" name="animalType" required />
+            <input type="hidden" id="isKing" name="isKing" required value="false"/>
+            <button type="submit">Add new animal</button>
+        </form>
+    </div>
+</body>
+</html>
