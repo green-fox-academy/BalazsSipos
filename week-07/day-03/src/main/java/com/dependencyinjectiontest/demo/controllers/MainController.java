@@ -13,15 +13,15 @@ public class MainController {
 
   BaseService baseServiceInstance;
 
-//  @Autowired
-//  MainController(BaseService instance){
-//    this.baseServiceInstance = instance;
-//  }
-
-  MainController(){
-    BaseService baseServiceImpl = new BaseServiceImpl();
-    this.baseServiceInstance = baseServiceImpl;
+  @Autowired
+  MainController(BaseService instance){
+    this.baseServiceInstance = instance;
   }
+
+//  MainController(){
+//    BaseService baseServiceImpl = new BaseServiceImpl();
+//    this.baseServiceInstance = baseServiceImpl;
+//  }
 
   @RequestMapping(value="/")
   @ResponseBody

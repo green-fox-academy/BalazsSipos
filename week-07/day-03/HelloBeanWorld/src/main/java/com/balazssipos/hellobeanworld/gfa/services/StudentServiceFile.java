@@ -6,14 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class StudentService implements StudentInterface {
-  ArrayList<String> names;
+public class StudentServiceFile implements StudentInterface {
+//  String names;
+  FileIOInterface fileIO;
 
-  public StudentService() {
-    this.names = new ArrayList<>();
+  public StudentServiceFile(FileIOInterface fileIO) {
+    this.fileIO = fileIO;
+
+    List<String> names = new ArrayList<>();
     names.add("Sanyi");
     names.add("Lilla");
     names.add("John");
+    this.fileIO.writeFileContent("/names.txt", names);
   }
 
   public List<String> findAll() {

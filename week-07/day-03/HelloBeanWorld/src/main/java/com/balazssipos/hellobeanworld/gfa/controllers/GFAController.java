@@ -1,6 +1,7 @@
 package com.balazssipos.hellobeanworld.gfa.controllers;
 
 import com.balazssipos.hellobeanworld.gfa.services.StudentService;
+import com.balazssipos.hellobeanworld.gfa.services.StudentServiceFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GFAController {
   StudentService studentService;
+  StudentServiceFile studentServiceFile;
 
-  public GFAController(StudentService studentService) {
+  public GFAController(StudentService studentService, StudentServiceFile studentServiceFile) {
     this.studentService = studentService;
+    this.studentServiceFile = studentServiceFile;
   }
 
   @GetMapping("/gfa")
