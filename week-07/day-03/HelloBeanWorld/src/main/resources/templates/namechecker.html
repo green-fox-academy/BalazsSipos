@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Name checker</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+<div>
+    <form action="/gfa/check" method="post">
+        <label for="student_name">Student's name to check:</label>
+        <input type="text" id="student_name" name="name" />
+        <button type="submit">Check Student</button>
+    </form>
+</div>
+<div>
+    <p th:text="${nameCheckerResponse}" th:classappend="${messageColor}"></p>
+</div>
+<div>
+    <a href="/gfa">Back to GFA homepage</a>
+</div>
+</body>
+</html>
