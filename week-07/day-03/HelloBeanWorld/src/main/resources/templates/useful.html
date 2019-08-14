@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Useful Utilities</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
-<body>
+<body th:classappend="${backgroundColor}">
+    <div>
+        <a href="/useful/colored">Colored Background</a>
+    </div>
+    <div>
+        <a href="/useful/email?email=is@this.valid">Example e-mail validation</a>
+    </div>
+    <div>
+        <a href="/useful/encode?text=abc&number=1">Encode example</a>
+    </div>
+    <div>
+        <a href="/useful/decode?text=bcd&number=1">Decode example</a>
+    </div>
+    <div>
+        <p th:text="${codedText}"></p>
+    </div>
 
+
+    <div>
+        <a href="/useful">Back to Useful homepage</a>
+    </div>
 </body>
 </html>
