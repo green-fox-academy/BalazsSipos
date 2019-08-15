@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Information</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="">Information</a></li>
+        </ul>
+    </div>
+    <div>
+        <img src="greenfox.png" alt="greenfox" />
+    </div>
+    <div>
+        <h3 th:text="'This is Mr. ' + ${foxObject.name} + '. Currently living on ' + ${foxObject.food} + ' and ' + ${foxObject.drink} + '. He knows ' + ${foxObject.trickHashMap.size()} + ' tricks.'"></h3>
+        <p><h1>Known tricks</h1></p>
+        <p>
+            <ul>
+                <li>write HTML</li>
+                <li>code in Java</li>
+            </ul>
+        </p>
+    </div>
+</body>
+</html>
