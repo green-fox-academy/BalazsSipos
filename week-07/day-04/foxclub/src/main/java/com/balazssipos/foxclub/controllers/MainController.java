@@ -112,4 +112,9 @@ public class MainController {
     this.foxService.learnTrickItem(new Trick(selectedTrick));
     return "redirect:/?name=" + foxName;
   }
+
+  @GetMapping("/logout")
+  public String logout() {
+    return "login";
+  }
 }
