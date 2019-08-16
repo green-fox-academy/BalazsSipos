@@ -45,31 +45,8 @@ public class MainController {
 
   @PostMapping("/login")
   public String login(Model model, @RequestParam("name") String foxName) {
-//    System.out.println(foxName);
     this.foxService.initFox(foxName);
 
-//    System.out.println(this.signUpService.getCurrentFox().toString());
-
-//    HashMap<String, Trick> tricksMap = this.trickService.getAllTricks();
-//    for (String trickName : tricksMap.keySet()) {
-//      System.out.println(tricksMap.get(trickName));
-//    }
-//
-//    HashMap<String, Nutrition> drinksMap = this.nutritionService.getAllDrinks();
-//    for (String drinkName : drinksMap.keySet()) {
-//      System.out.println(drinksMap.get(drinkName));
-//    }
-//
-//    HashMap<String, Nutrition> foodMap = this.nutritionService.getAllFoods();
-//    for (String foodName : foodMap.keySet()) {
-//      System.out.println(foodMap.get(foodName));
-//    }
-
-//    Fox currentFox = this.signUpService.checkIfFoxExist(foxName);
-//    System.out.println("név" + currentFox.getName());
-//    this.signUpService.addFoxToFoxHashMap(currentFox);
-//    this.signUpService.setCurrentFox(foxName);
-//    System.out.println("név" + this.signUpService.getCurrentFoxName());
     return "redirect:/?name=" + foxName;
   }
 

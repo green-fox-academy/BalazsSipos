@@ -26,7 +26,7 @@
 
         <label for="drink">Drink: </label>
         <select name="drink" id="drink">
-            <option th:each="drinkObject : ${drinks}" th:value="${drinkObject.name}" th:text="${drinkObject.name}"></option>
+            <option th:each="drinkObject : ${drinks}" th:value="${drinkObject.name}" th:text="${drinkObject.name}" th:if="${drinkObject.name} eq ${foxObject.drink.name} th:attr="selected"></option>
         </select>
         <input type="submit" value="Change">
     </form>
