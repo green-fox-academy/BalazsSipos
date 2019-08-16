@@ -23,7 +23,9 @@ public class TrickServiceImpl implements TrickService {
 
   @Override
   public void addNewTrick(Trick newTrick) {
-    this.trickRepository.addTrickItem(newTrick);
+    if(!this.trickRepository.checkIfTrickItemAlreadyExist(newTrick)) {
+      this.trickRepository.addTrickItem(newTrick);
+    }
   }
 
 //  @Override

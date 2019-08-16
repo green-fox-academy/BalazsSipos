@@ -60,4 +60,17 @@ public class Fox {
             ", drink='" + drink + '\'' +
             '}';
   }
+
+  private boolean CheckIfTrickIsAlreadyKnown(Trick trickItem) {
+    if(this.trickHashMap.containsKey(trickItem.getName())) {
+      return true;
+    }
+    return false;
+  }
+
+  public void learnNewTrick(Trick newTrick) {
+    if(!this.CheckIfTrickIsAlreadyKnown(newTrick)) {
+      this.trickHashMap.put(newTrick.getName(), newTrick);
+    }
+  }
 }

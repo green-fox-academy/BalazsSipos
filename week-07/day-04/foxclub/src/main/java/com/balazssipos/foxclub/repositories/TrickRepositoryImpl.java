@@ -11,9 +11,9 @@ public class TrickRepositoryImpl implements TrickRepository {
 
   public TrickRepositoryImpl() {
     this.trickHashMap = new HashMap<>();
-    this.trickHashMap.put("sit", new Trick(1, "sit"));
-    this.trickHashMap.put("eat", new Trick(2, "eat"));
-    this.trickHashMap.put("drink", new Trick(3, "drink"));
+    this.trickHashMap.put("sit", new Trick("sit"));
+    this.trickHashMap.put("eat", new Trick("eat"));
+    this.trickHashMap.put("drink", new Trick("drink"));
   }
 
   @Override

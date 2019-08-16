@@ -1,21 +1,28 @@
 package com.balazssipos.foxclub.services;
 
 import com.balazssipos.foxclub.models.entities.Fox;
+import com.balazssipos.foxclub.models.entities.Nutrition;
+import com.balazssipos.foxclub.models.entities.Trick;
 import com.balazssipos.foxclub.repositories.FoxRepository;
+import com.balazssipos.foxclub.repositories.NutritionRepository;
+import com.balazssipos.foxclub.repositories.TrickRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SignUpServiceImpl implements SignUpService {
+public class FoxServiceImpl implements FoxService {
   private FoxRepository foxRepository;
   private TrickService trickService;
   private NutritionService nutritionService;
+  private NutritionRepository nutritionRepository;
 
   @Autowired
-  public SignUpServiceImpl(FoxRepository foxRepository, TrickService trickService, NutritionService nutritionService) {
+  public FoxServiceImpl(FoxRepository foxRepository, TrickService trickService, NutritionService nutritionService,
+                        NutritionRepository nutritionRepository) {
     this.foxRepository = foxRepository;
     this.trickService = trickService;
     this.nutritionService = nutritionService;
+    this.nutritionRepository = nutritionRepository;
   }
 
   @Override
@@ -66,6 +73,29 @@ public class SignUpServiceImpl implements SignUpService {
 
     this.foxRepository.setCurrentFoxName(foxName);
   }
+
+  @Override
+  public void changeDrinkOnFox(String drinkName) {
+    boolean validDrink = this.nutritionRepository.checkIfDrinkItemAlreadyExist(new Nutrition(drinkName));
+    if(validDrink) {
+      this.foxRepository.changeDrink(drinkName);
+    }
+  }
+
+  @Override
+  public void changeFoodOnFox(String foodName) {
+    boolean validFood = this.nutritionRepository.checkIfFoodItemAlreadyExist(new Nutrition(foodName));
+    if(validFood) {
+      this.foxRepository.changeFood(foodName);
+    }
+  }
+
+  @Override
+  public void learnTrickItem(Trick trickItem) {
+    this.foxRepository.learnTrick(trickItem);
+  }
+
+
 
 //  @Override
 //  public void initEnvironment() {

@@ -7,9 +7,9 @@
 <body>
     <div>
         <ul>
-            <li><a href="">Information</a></li>
-            <li><a href="/nutritionStore">Nutrition Store</a></li>
-            <li><a href="">Trick Centre</a></li>
+            <li><a th:href="'/?name=' + ${foxObject.name}">Information</a></li>
+            <li><a th:href="'/nutritionStore?name=' + ${foxObject.name}">Nutrition Store</a></li>
+            <li><a th:href="'/trickCentre?name=' + ${foxObject.name}">Trick Centre</a></li>
             <li><a href="">Action History</a></li>
         </ul>
     </div>
@@ -22,7 +22,7 @@
         <p th:if="${foxObject.trickHashMap.size() == 0}">You know no tricks yet. Go and learn some.</p>
         <p>
             <ul>
-                <li th:each="trickName : ${foxObject.trickHashMap.keySet()}" th:text="${foxObject.trickHashMap.get(trickName)}"></li>
+                <li th:each="trickName : ${foxObject.trickHashMap.keySet()}" th:text="${trickName}"></li>
 
             </ul>
         </p>
