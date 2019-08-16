@@ -9,21 +9,23 @@ import org.springframework.stereotype.Service;
 public class SignUpServiceImpl implements SignUpService {
   private FoxRepository foxRepository;
   private TrickService trickService;
+  private NutritionService nutritionService;
 
   @Autowired
-  public SignUpServiceImpl(FoxRepository foxRepository, TrickService trickService) {
+  public SignUpServiceImpl(FoxRepository foxRepository, TrickService trickService, NutritionService nutritionService) {
     this.foxRepository = foxRepository;
     this.trickService = trickService;
+    this.nutritionService = nutritionService;
   }
 
   @Override
-  public Fox checkIfFoxExist(String name) {
-    System.out.println("name:" + this.foxRepository.findAll().toString());
+  public boolean checkIfFoxExist(String name) {
+//    System.out.println("name:" + this.foxRepository.findAll().toString());
     if(this.foxRepository.findAll().containsKey(name)) {
-      return this.foxRepository.findAll().get(name);
+      return true;
     } else {
-      System.out.println(name);
-      return new Fox(name);
+      System.out.println("aaa" + name);
+      return false;
     }
   }
 
@@ -47,8 +49,26 @@ public class SignUpServiceImpl implements SignUpService {
     this.foxRepository.setCurrentFoxName(foxName);
   }
 
+
+
   @Override
-  public void initBasicTricks() {
-    this.trickService.initBasicTricks();
+  public void initFox(String foxName) {
+    Fox fox;
+    if(this.checkIfFoxExist(foxName)) {
+      fox = this.foxRepository.findAll().get(foxName);
+    } else {
+      System.out.println("bbb" + foxName);
+      fox = new Fox(foxName, this.nutritionService.getFirstFood(), this.nutritionService.getFirstDrink());
+    }
+    System.out.println("fox:" + fox.toString());
+
+    this.foxRepository.addFoxToRepository(fox);
+
+    this.foxRepository.setCurrentFoxName(foxName);
   }
+
+//  @Override
+//  public void initEnvironment() {
+//    this.trickService.initBasicTricks();
+//  }
 }

@@ -24,4 +24,12 @@ public class Trick {
   public void setName(String name) {
     this.name = name;
   }
+
+  @Override
+  public String toString() {
+    return "Trick{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            '}';
+  }
 }

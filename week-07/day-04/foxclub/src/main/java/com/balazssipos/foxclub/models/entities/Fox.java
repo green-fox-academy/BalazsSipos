@@ -5,12 +5,18 @@ import java.util.HashMap;
 public class Fox {
   private String name;
   private HashMap<String, Trick> trickHashMap;
-  private String food;
-  private String drink;
+  private Nutrition food;
+  private Nutrition drink;
 
   public Fox(String name) {
     this.name = name;
     this.trickHashMap = new HashMap<>();
+  }
+
+  public Fox(String name, Nutrition food, Nutrition drink) {
+    this(name);
+    this.food = food;
+    this.drink = drink;
   }
 
   public String getName() {
@@ -29,19 +35,19 @@ public class Fox {
     this.trickHashMap = trickHashMap;
   }
 
-  public String getFood() {
+  public Nutrition getFood() {
     return food;
   }
 
-  public void setFood(String food) {
+  public void setFood(Nutrition food) {
     this.food = food;
   }
 
-  public String getDrink() {
+  public Nutrition getDrink() {
     return drink;
   }
 
-  public void setDrink(String drink) {
+  public void setDrink(Nutrition drink) {
     this.drink = drink;
   }
 

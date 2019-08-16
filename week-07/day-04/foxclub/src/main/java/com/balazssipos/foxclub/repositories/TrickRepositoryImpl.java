@@ -9,15 +9,35 @@ import java.util.HashMap;
 public class TrickRepositoryImpl implements TrickRepository {
   private HashMap<String, Trick> trickHashMap;
 
-  @Override
-  public HashMap<String, Trick> findAll() {
-    return null;
+  public TrickRepositoryImpl() {
+    this.trickHashMap = new HashMap<>();
+    this.trickHashMap.put("sit", new Trick(1, "sit"));
+    this.trickHashMap.put("eat", new Trick(2, "eat"));
+    this.trickHashMap.put("drink", new Trick(3, "drink"));
   }
 
   @Override
-  public void createTrickRepositoryMap() {
-    this.trickHashMap.put("sit", new Trick(1, "sit"));
-    this.trickHashMap.put("eat", new Trick(2, "eat"));
-    this.trickHashMap.put("run", new Trick(3, "run"));
+  public HashMap<String, Trick> findAll() {
+    return this.trickHashMap;
   }
+
+  @Override
+  public void addTrickItem(Trick trickItem) {
+    if(!checkIfTrickItemAlreadyExist(trickItem)) {
+      this.trickHashMap.put(trickItem.getName(), trickItem);
+    }
+  }
+
+  @Override
+  public boolean checkIfTrickItemAlreadyExist(Trick trickItem) {
+    if(this.trickHashMap.containsKey(trickItem.getName())) {
+      return true;
+    }
+    return false;
+  }
+
+//  @Override
+//  public void createTrickRepositoryMap() {
+//
+//  }
 }

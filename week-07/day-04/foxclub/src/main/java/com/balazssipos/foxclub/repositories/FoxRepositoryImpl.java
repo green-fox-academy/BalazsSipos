@@ -35,11 +35,15 @@ public class FoxRepositoryImpl implements FoxRepository {
 
   @Override
   public void setCurrentFoxName(String foxName) {
-    this.currentFoxName = foxName;
+    if(this.currentFoxName != foxName) {
+      this.currentFoxName = foxName;
+    }
   }
 
   @Override
   public void addFoxToRepository(Fox newFox) {
-    this.foxHashMap.put(newFox.getName(), newFox);
+    if(this.foxHashMap.get(newFox.getName()) == null) {
+      this.foxHashMap.put(newFox.getName(), newFox);
+    }
   }
 }

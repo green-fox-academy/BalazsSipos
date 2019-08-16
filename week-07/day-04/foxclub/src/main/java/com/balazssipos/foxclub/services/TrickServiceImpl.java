@@ -2,6 +2,7 @@ package com.balazssipos.foxclub.services;
 
 import com.balazssipos.foxclub.models.entities.Trick;
 import com.balazssipos.foxclub.repositories.TrickRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 public class TrickServiceImpl implements TrickService {
   private TrickRepository trickRepository;
 
+  @Autowired
   public TrickServiceImpl(TrickRepository trickRepository) {
     this.trickRepository = trickRepository;
   }
@@ -20,7 +22,12 @@ public class TrickServiceImpl implements TrickService {
   }
 
   @Override
-  public void initBasicTricks() {
-    this.trickRepository.createTrickRepositoryMap();
+  public void addNewTrick(Trick newTrick) {
+    this.trickRepository.addTrickItem(newTrick);
   }
+
+//  @Override
+//  public void initBasicTricks() {
+//    this.trickRepository.createTrickRepositoryMap();
+//  }
 }

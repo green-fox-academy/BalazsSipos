@@ -8,18 +8,22 @@
     <div>
         <ul>
             <li><a href="">Information</a></li>
+            <li><a href="/nutritionStore">Nutrition Store</a></li>
+            <li><a href="">Trick Centre</a></li>
+            <li><a href="">Action History</a></li>
         </ul>
     </div>
     <div>
         <img src="greenfox.png" alt="greenfox" />
     </div>
     <div>
-        <h3 th:text="'This is Mr. ' + ${foxObject.name} + '. Currently living on ' + ${foxObject.food} + ' and ' + ${foxObject.drink} + '. He knows ' + ${foxObject.trickHashMap.size()} + ' tricks.'"></h3>
+        <h3 th:text="'This is Mr. ' + ${foxObject.name} + '. Currently living on ' + ${foxObject.food.name} + ' and ' + ${foxObject.drink.name} + '. He knows ' + ${foxObject.trickHashMap.size()} + ' tricks.'"></h3>
         <p><h1>Known tricks</h1></p>
+        <p th:if="${foxObject.trickHashMap.size() == 0}">You know no tricks yet. Go and learn some.</p>
         <p>
             <ul>
-                <li>write HTML</li>
-                <li>code in Java</li>
+                <li th:each="trickName : ${foxObject.trickHashMap.keySet()}" th:text="${foxObject.trickHashMap.get(trickName)}"></li>
+
             </ul>
         </p>
     </div>

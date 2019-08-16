@@ -9,5 +9,7 @@ import java.util.HashMap;
 @Component
 public interface TrickRepository {
   HashMap<String, Trick> findAll();
-  void createTrickRepositoryMap();
+//  void createTrickRepositoryMap();
+  void addTrickItem(Trick trickItem);
+  boolean checkIfTrickItemAlreadyExist(Trick trickItem);
 }
