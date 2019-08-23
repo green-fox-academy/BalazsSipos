@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Postlist</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div>
+    <p>Posts:</p>
+    <a th:href="@{/submit}">Submit new post</a>
+
+    <table>
+        <tr>
+            <th>Popularity</th>
+            <th></th>
+            <th></th>
+            <th>Post name</th>
+        </tr>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.popularity}"></td>
+            <td><a th:href="'/popincre?postid=' + ${post.id}"></a></td>
+            <td>-</td>
+            <td><a th:href="'/post/?postid=' + ${post.id}" th:text="${post.title}"></a></td>
+
+<!--            <td><a th:href="'/todo/'+${todo.id}+'/delete'">Delete</a></td>-->
+<!--            <td><a th:href="'/todo/'+${todo.id}+'/edit'">Edit</a></td>-->
+        </tr>
+    </table>
+</div>
+</body>
+</html>

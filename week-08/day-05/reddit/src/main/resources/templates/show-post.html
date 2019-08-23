@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show post</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div>
+    <h1 th:text="${post.title}"></h1>
+    <p th:text="'URL: ' + ${post.URL}"></p>
+    <p th:text="'Popularity: ' + ${post.popularity}"></p>
+
+
+</div>
+</body>
+</html>
