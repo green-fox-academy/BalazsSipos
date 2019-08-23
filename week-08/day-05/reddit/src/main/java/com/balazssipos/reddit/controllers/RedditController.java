@@ -2,6 +2,7 @@ package com.balazssipos.reddit.controllers;
 
 import com.balazssipos.reddit.models.Post;
 import com.balazssipos.reddit.repositories.PostRepository;
+import com.balazssipos.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -10,13 +11,18 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class RedditController {
-  @Qualifier("postRepository")
+
+
   @Autowired
-  private PostRepository postRepository;
+  private PostService postService;
 
   @GetMapping("/")
-  public String listPosts(Model model) {
-    model.addAttribute("posts", this.postRepository.findAll());
+  public String listPosts(Model model, @RequestParam(value = "page-number", required = false) String pageNumber) {
+    if(pageNumber != null) {
+      model.addAttribute("posts", this.postService.getAllPostOrderedbyPopularityPaginated(Integer.parseInt(pageNumber)));
+    } else {
+      model.addAttribute("posts", this.postService.getAllPost());
+    }
     return "list-post";
   }
 
@@ -28,15 +34,22 @@ public class RedditController {
 
   @PostMapping("/submit")
   public String addNewPost(@ModelAttribute Post post) {
-    System.out.println(post.toString());
-    this.postRepository.save(post);
-    return "redirect:/";
+//    System.out.println(post.toString());
+    this.postService.savePost(post);
+    return "redirect:/?page-number=1";
   }
 
   @GetMapping("/post")
   public String renderPost(Model model, @RequestParam("postid") String postId) {
-    System.out.println("objectem: " + this.postRepository.findById(Integer.parseInt(postId)).toString());
-    model.addAttribute("post", this.postRepository.findById(Integer.parseInt(postId)).get());
+    model.addAttribute("post", this.postService.getPostbyId(Integer.parseInt(postId)));
     return "show-post";
+  }
+
+  @GetMapping("/popchange")
+  public String changePopularity(@RequestParam("postid") String postId, @RequestParam("direction") String direction, @RequestParam("page-number") String pageNumber) {
+    //Post post = this.postService.getPostbyId(Integer.parseInt(postId));
+    this.postService.changePopularity(postId, direction);
+    //this.postService.savePost(post);
+    return "redirect:/?page-number=" + (Integer.parseInt(pageNumber) + 1);
   }
 }

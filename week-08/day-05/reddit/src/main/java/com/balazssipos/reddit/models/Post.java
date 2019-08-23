@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class Post {
@@ -13,6 +15,8 @@ public class Post {
   private String title;
   private String URL;
   private Integer popularity;
+  private LocalDateTime creationDate;
+//  private User user;
 
   public Post() {
     this("", "");
@@ -22,6 +26,7 @@ public class Post {
     this.title = title;
     this.URL = URL;
     this.popularity = 0;
+    this.creationDate = LocalDateTime.now();
   }
 
   public Integer getId() {
@@ -50,6 +55,10 @@ public class Post {
 
   public void setPopularity(Integer popularity) {
     this.popularity = popularity;
+  }
+
+  public LocalDateTime getCreationDate() {
+    return creationDate;
   }
 
   @Override

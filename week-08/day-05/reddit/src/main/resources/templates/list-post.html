@@ -16,17 +16,21 @@
             <th></th>
             <th></th>
             <th>Post name</th>
+            <th>Creation date</th>
         </tr>
         <tr th:each="post : ${posts}">
             <td th:text="${post.popularity}"></td>
-            <td><a th:href="'/popincre?postid=' + ${post.id}"></a></td>
-            <td>-</td>
+            <td><a th:href="'/popchange?postid=' + ${post.id} + '&direction=plus&page-number=' + ${posts.getNumber()}"> + </a></td>
+            <td><a th:href="'/popchange?postid=' + ${post.id} + '&direction=minus&page-number=' + ${posts.getNumber()}"> - </a></td>
             <td><a th:href="'/post/?postid=' + ${post.id}" th:text="${post.title}"></a></td>
-
-<!--            <td><a th:href="'/todo/'+${todo.id}+'/delete'">Delete</a></td>-->
-<!--            <td><a th:href="'/todo/'+${todo.id}+'/edit'">Edit</a></td>-->
+            <td th:text="${post.creationDate}"></td>
         </tr>
     </table>
+    <div>
+        <a th:href="'/?page-number=' + ${posts.getNumber()}" th:if="${posts.getNumber() > 0}">previous</a>
+        <span> | </span>
+        <a th:href="'/?page-number=' + ${posts.getNumber()+2}">next</a>
+    </div>
 </div>
 </body>
 </html>
