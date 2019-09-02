@@ -1,9 +1,6 @@
 package com.balazssipos.todomysql.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
@@ -13,6 +10,9 @@ public class Todo {
   private String title;
   private boolean urgent;
   private boolean done;
+
+  @ManyToOne
+  private Assignee assignee;
 
   public Todo() {
     this("", false, false);
@@ -56,7 +56,19 @@ public class Todo {
     return done;
   }
 
-  @Override
+  public void setDone(boolean done) {
+    this.done = done;
+  }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
+    @Override
   public String toString() {
     return "Todo{" +
             "id=" + id +
@@ -64,9 +76,5 @@ public class Todo {
             ", urgent=" + urgent +
             ", done=" + done +
             '}';
-  }
-
-  public void setDone(boolean done) {
-    this.done = done;
   }
 }

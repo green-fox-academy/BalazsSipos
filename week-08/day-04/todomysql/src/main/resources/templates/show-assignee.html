@@ -2,22 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Todolist</title>
+    <title>Todolist of Assignee</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
 <body>
 <div>
     <a th:href="@{/todo/assignees}">List of assignees</a>
-    <form action="#" th:action="@{/todo/}" method="post">
-        <p>Search in title: <input type="text" name="search" /></p>
-        <p><input type="submit" value="Search" />    </p>
-    </form>
-    <p th:text="${errormsg}"></p>
+
+
     <p>Todos for today:</p>
-    <a th:href="@{/todo/add}">Add new todo</a>
-    <a th:href="@{/todo/list?isActive=true}"> | Filter to active todos</a>
-    <a th:href="@{/todo/list?isActive=false}"> | Filter to alredy done todos</a>
-    <a th:href="@{/todo/list}"> | Show all todos</a>
     <table>
         <tr>
             <th>ID</th>
@@ -26,16 +19,16 @@
             <th>URGENT</th>
             <th>DELETE</th>
             <th>EDIT</th>
-            <th>ASSIGNEE</th>
+
         </tr>
-        <tr th:each="todo : ${todos}">
+        <tr th:each="todo : ${assignee.todoList}">
             <td th:text="${todo.getId()}"></td>
             <td th:text="${todo.getTitle()}"></td>
             <td th:text="${todo.isDone()}"></td>
             <td th:text="${todo.isUrgent()}"></td>
             <td><a th:href="'/todo/'+${todo.id}+'/delete'">Delete</a></td>
             <td><a th:href="'/todo/'+${todo.id}+'/edit'">Edit</a></td>
-            <td><a th:href="'/todo/assignee/'+${todo.assignee.id}+'/show'" th:text="${todo.assignee.name}"></a></td>
+
         </tr>
     </table>
 </div>
