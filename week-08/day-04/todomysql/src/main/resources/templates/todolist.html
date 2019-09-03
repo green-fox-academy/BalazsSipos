@@ -27,6 +27,8 @@
             <th>DELETE</th>
             <th>EDIT</th>
             <th>ASSIGNEE</th>
+            <th>DATE OF CREATION</th>
+            <th>DUE DATE</th>
         </tr>
         <tr th:each="todo : ${todos}">
             <td th:text="${todo.getId()}"></td>
@@ -36,6 +38,8 @@
             <td><a th:href="'/todo/'+${todo.id}+'/delete'">Delete</a></td>
             <td><a th:href="'/todo/'+${todo.id}+'/edit'">Edit</a></td>
             <td><a th:href="'/todo/assignee/'+${todo.assignee.id}+'/show'" th:text="${todo.assignee.name}"></a></td>
+            <td th:text="${todo.dateOfCreation}"></td>
+            <td th:text="${todo.dueDate}"></td>
         </tr>
     </table>
 </div>

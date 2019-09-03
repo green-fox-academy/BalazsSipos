@@ -17,6 +17,8 @@
             <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"
                     ></option>
         </select>
+        <p>Done: <input type="datetime-local" name="creation-date"
+                        th:field="*{dateOfCreation}" /></p>
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{assignee}" />
         <p><input type="submit" value="Submit" />

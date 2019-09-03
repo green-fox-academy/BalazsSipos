@@ -10,6 +10,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+
 @SpringBootApplication
 public class TodomysqlApplication implements CommandLineRunner {
 
@@ -32,21 +35,16 @@ public class TodomysqlApplication implements CommandLineRunner {
   }
 
   public void run(String... args) {
-//    this.todoRepository.save(new Todo("I have to learn Object Relational Mapping"));
-//    this.todoRepository.save(new Todo("I need to eat"));
-//    this.todoRepository.save(new Todo("I need to be cool"));
-//    this.todoRepository.save(new Todo("Drink", true, false));
-//    this.todoRepository.save(new Todo("Fish", true, true));
 
     Assignee assignee1 = new Assignee("Jani", "janika@jani.hu");
-    assignee1.addTodo(new Todo("Chill", false, false));
+    assignee1.addTodo(new Todo("Chill", false, false, LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30)));
     assignee1.addTodo(new Todo("I have to learn Object Relational Mapping"));
     assignee1.addTodo(new Todo("I need to eat"));
     this.assigneeRepository.save(assignee1);
     Assignee assignee2 = new Assignee("Sanyi", "sanyika@jani.hu");
     assignee2.addTodo(new Todo("I need to be cool"));
-    assignee2.addTodo(new Todo("Drink", true, false));
-    assignee2.addTodo(new Todo("Fish", true, true));
+    assignee2.addTodo(new Todo("Drink", true, false, LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30)));
+    assignee2.addTodo(new Todo("Fish", true, true, LocalDateTime.of(2014, Month.JANUARY, 1, 10, 10, 30)));
     this.assigneeRepository.save(assignee2);
 //    this.assigneeRepository.save(new Assignee("Sanyi", "sanyika@jani.hu"));
   }
