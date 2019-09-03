@@ -2,11 +2,12 @@ package com.balazssipos.rest.controllers;
 
 import com.balazssipos.rest.models.Greeting.Greeting;
 import com.balazssipos.rest.models.Greeting.GreetingError;
+import com.balazssipos.rest.models.appenda.AppendA;
+import com.balazssipos.rest.models.models.doUntil.DoUntil;
+import com.balazssipos.rest.models.models.doUntil.Result;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -50,5 +51,27 @@ public class MainController {
       GreetingError greetingError = new GreetingError("Please provide a name and a title!");
       return ResponseEntity.status(400).body(greetingError);
     }
+  }
+
+  @GetMapping("/appenda/{appendable}")
+  public ResponseEntity appendA(@PathVariable("appendable") String appendable) {
+    AppendA appendA = new AppendA(appendable);
+    appendA.setAppended(appendable + "a");
+    return ResponseEntity.status(400).body(appendA);
+  }
+
+  @PostMapping("/dountil/{action}")
+  public ResponseEntity doUntil(@PathVariable("action") String action, @RequestBody() DoUntil doUntil) {
+    if(action.equals("sum")) {
+      int sumNumbers = doUntil.sumNumbers();
+      return ResponseEntity.status(200).body(new Result(sumNumbers));
+    } else if(action.equals("factor")) {
+      int sumNumbers = doUntil.factorNumbers();
+      return ResponseEntity.status(200).body(new Result(sumNumbers));
+    }
+    if(doUntil.getUntil() == 0) {
+      return ResponseEntity.status(400).body(new Error("Please provide a number!"));
+    }
+    return ResponseEntity.status(400).body(new Error("Please provide a number!"));
   }
 }
