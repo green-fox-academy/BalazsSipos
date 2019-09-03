@@ -12,8 +12,8 @@ public class Assignee {
     String name;
     String email;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "assignee_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "assignee")
+//            @JoinColumn(name= "assignee_id")
     List<Todo> todoList;
 
     public Assignee() {
@@ -61,9 +61,16 @@ public class Assignee {
 
     public void addTodo(Todo todo) {
         this.todoList.add(todo);
+        todo.setAssignee(this);
     }
 
-    public List<Todo> getTodoList() {
-        return todoList;
-    }
+
+
+  public List<Todo> getTodoList() {
+    return todoList;
+  }
+
+  public void setTodoList(List<Todo> todoList) {
+    this.todoList = todoList;
+  }
 }

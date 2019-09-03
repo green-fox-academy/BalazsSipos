@@ -87,7 +87,6 @@ public class TodoController {
 
   @PostMapping("/edit")
   public String editTodo(@ModelAttribute Todo todo, @RequestParam("assignee_id") String assigneID) {
-      System.out.println("assigneeIDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + assigneID);
       Optional<Assignee> assigneById = this.assigneeRepository.findById(Integer.parseInt(assigneID));
       if(assigneById.isPresent()) {
           todo.setAssignee(assigneById.get());

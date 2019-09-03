@@ -13,8 +13,9 @@
         <p>Todo Description: <input type="text" th:field="*{title}" /></p>
         <p>Urgent: <input type="checkbox" name="urgent" th:field="*{urgent}" /></p>
         <p>Done: <input type="checkbox" name="done" th:field="*{done}" /></p>
-        <select name="assignee_id" id="assignee_id2">
-            <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+        <select name="assignee_id">
+            <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"
+                    ></option>
         </select>
         <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{assignee}" />
