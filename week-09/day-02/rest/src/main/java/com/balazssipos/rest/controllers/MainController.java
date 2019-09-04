@@ -3,8 +3,12 @@ package com.balazssipos.rest.controllers;
 import com.balazssipos.rest.models.Greeting.Greeting;
 import com.balazssipos.rest.models.Greeting.GreetingError;
 import com.balazssipos.rest.models.appenda.AppendA;
+import com.balazssipos.rest.models.arrayHandler.ArrayHandlerError;
+import com.balazssipos.rest.models.arrayHandler.Receive;
 import com.balazssipos.rest.models.models.doUntil.DoUntil;
 import com.balazssipos.rest.models.models.doUntil.Result;
+import com.balazssipos.rest.services.ArrayHandlerServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +17,9 @@ import java.util.HashMap;
 
 @Controller
 public class MainController {
+  @Autowired
+  private ArrayHandlerServiceImpl arrayHandlerServiceImpl;
+
   @GetMapping("/")
   public String renderIndex() {
     return "index";
@@ -73,5 +80,15 @@ public class MainController {
       return ResponseEntity.status(400).body(new Error("Please provide a number!"));
     }
     return ResponseEntity.status(400).body(new Error("Please provide a number!"));
+  }
+
+  @PostMapping("/arrays")
+  public ResponseEntity arrayHandling(@RequestBody() Receive receivedObject) {
+    if(this.arrayHandlerServiceImpl.inputValidator(receivedObject)) {
+      return ResponseEntity.status(200).body(this.arrayHandlerServiceImpl.arrayHandler(receivedObject));
+    } else {
+      return ResponseEntity.status(400).body(new ArrayHandlerError("Please provide numbers, and what to do with the " +
+              "numbers!"));
+    }
   }
 }
