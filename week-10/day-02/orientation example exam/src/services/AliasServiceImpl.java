@@ -1,5 +1,6 @@
 package services;
 
+import com.sun.tools.javac.util.List;
 import models.DTOs.AliasDTO;
 import models.entities.Alias;
 import repositories.AliasRepository;
@@ -25,8 +26,17 @@ public class AliasServiceImpl implements AliasService {
     }
 
     @Override
-    public Alias findAliasById(String alias) {
+    public Alias findAliasByAlias(String alias) {
         Optional<Alias> optionalAlias = this.aliasRepository.findByAlias(alias);
+        if(optionalAlias.isPresent()) {
+            return optionalAlias.get();
+        }
+        return null;
+    }
+
+    @Override
+    public Alias findAliasById(Long id) {
+        Optional<Alias> optionalAlias = this.aliasRepository.findById(id);
         if(optionalAlias.isPresent()) {
             return optionalAlias.get();
         }
@@ -45,6 +55,35 @@ public class AliasServiceImpl implements AliasService {
             alias = new Alias(aliasDTO.getUrl(), aliasDTO.getAlias(), aliasDTO.getHitCount(), this.randomGenerator(1000,9000.0))
         } else {
             alias = new Alias();
+        }
+    }
+
+    @Override
+    public Alias increaseHitCount(Alias alias) {
+        Optional<Alias> optFoundAlias = this.aliasRepository.findByAlias(alias.getAlias());
+        if(optFoundAlias.isPresent()) {
+            Alias foundAlias = optFoundAlias.get();
+            foundAlias.setHitCount(foundAlias.getHitCount() + 1);
+            return foundAlias;
+        }
+        return null;
+    }
+
+    @Override
+    public List<AliasDTO> findAllAliasDTOs() {
+        List<AliasDTO> aliasDTOList = new ArrayList<>();
+        List<Alias> aliasList = this.aliasRepository.findAll();
+        for (int i=0;i<aliasList.size();i++) {
+            aliasDTOList.add(this.convertFromAliasToAliasDTO(aliasList.get(i)));
+        }
+        return aliasDTOList;
+    }
+
+    @Override
+    public void deleteAliasById(Long id) {
+        Optional<Alias> optionalAlias = this.aliasRepository.findById(id);
+        if(optionalAlias.isPresent()) {
+            this.aliasRepository.deleteById(id);
         }
     }
 
