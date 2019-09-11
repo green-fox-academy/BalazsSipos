@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Main page</title>
+</head>
+<body>
+<h1>URL alias creator</h1>
+<div th:if="${errorMessage}" th:text="${errorMessage.errorMessage}" style="color: red"></div>
+<div th:if="${errorMessage}" th:text="${errorMessage.successMessage}"></div>
+
+<div>
+    <form action="/save-link" method="post" th:object="${aliasDTO}">
+        <label for="url">URL</label><br>
+        <input type="text" name="url" id="url" th:field="*{url}" /><br>
+        <label for="alias">Alias</label><br>
+        <input type="text" name="alias" id="alias" th:field="*{alias}" /><br>
+        <input type="hidden" name="aliasId" id="aliasId" th:field="*{id}" />
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+</body>
+</html>
