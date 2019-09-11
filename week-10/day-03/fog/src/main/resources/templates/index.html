@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Main</title>
+</head>
+<body>
+<h1>Add FoodCategory</h1>
+<div th:if="${errorMessageFC}" th:text="${errorMessageFC}" style="color: red"></div>
+<form th:action="'/u/' + ${userId} + '/addFoodCategory'" method="post" th:object="${newFoodCategory}">
+    <div>
+        <label for="foodcategory">Food category:</label>
+        <input type="text" name="foodcategory" id="foodcategory" th:field="*{name}" />
+        <input type="hidden" th:field="*{id}">
+    </div>
+    <div>
+        <input type="submit" value="Create Food Category" />
+    </div>
+    <div>
+        <p>List of Food Categories</p>
+        <ul th:each="foodCategory : ${foodCategories}">
+            <li th:text="${foodCategory.name}"></li>
+        </ul>
+    </div>
+</form>
+</body>
+</html>
