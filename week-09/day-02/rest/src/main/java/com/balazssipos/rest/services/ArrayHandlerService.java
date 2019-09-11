@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ArrayHandlerService {
   public ResultDTO arrayHandler(Receive receiveObject);
+  public boolean inputValidator(Receive receivedObject);
 }

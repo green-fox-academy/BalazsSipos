@@ -17,8 +17,12 @@ import java.util.HashMap;
 
 @Controller
 public class MainController {
-  @Autowired
   private ArrayHandlerServiceImpl arrayHandlerServiceImpl;
+
+  @Autowired
+  public MainController(ArrayHandlerServiceImpl arrayHandlerServiceImpl) {
+    this.arrayHandlerServiceImpl = arrayHandlerServiceImpl;
+  }
 
   @GetMapping("/")
   public String renderIndex() {
