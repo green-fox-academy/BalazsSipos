@@ -27,7 +27,7 @@ public class FoodCategoryServiceImpl implements FoodCategoryService {
 
   @Override
   public List<FoodCategory> findAllFoodCategoriesByUserId(Long id) {
-    return this.foodCategoryRepository.findAllById(id);
+    return this.foodCategoryRepository.findAllByFogUserId(id);
   }
 
   @Override

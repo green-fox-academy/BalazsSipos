@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cars</title>
+</head>
+<body>
+<h1>Car database</h1>
+<div th:if="${errorMessage}" th:text="${errorMessage}" style="color: red"></div>
+
+<div>
+    <form action="/search" method="get">
+        <label for="q">Search:</label>
+        <input type="text" name="q" id="q" />
+        <input type="submit" value="Search" />
+    </form>
+    <a href="/search?police=1">Police cars only</a>
+    <a href="/search?diplomat=1">Diplomats only</a>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Licence plate</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Yaar</th>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.plate}"></td>
+            <td><a th:href="'/search/' + ${car.carBrand}" th:text="${car.carBrand}"></a></td>
+            <td th:text="${car.carModel}"></td>
+            <td th:text="${car.color}"></td>
+            <td th:text="${car.year}"></td>
+        </tr>
+    </table>
+
+</div>
+<div>
+<!--    <form action="/message" th:object="${newMessage}" method="post">-->
+<!--        <textarea name="message-text" id="message-text" cols="30" rows="10" th:field="*{text}"></textarea>-->
+<!--        <input type="hidden" name="messageUserId" id="messageUserId" th:field="*{username}" />-->
+<!--        &lt;!&ndash;            <input type="hidden" name="messageId" id="messageId" th:field="*{id}" />&ndash;&gt;-->
+<!--        <input type="submit" value="Send" />-->
+<!--    </form>-->
+</div>
+
+</body>
+</html>

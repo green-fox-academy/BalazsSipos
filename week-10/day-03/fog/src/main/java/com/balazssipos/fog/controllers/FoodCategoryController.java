@@ -32,12 +32,12 @@ public class FoodCategoryController {
   public String addFoodCategory(@ModelAttribute("newFoodCategory") FoodCategory foodCategory,
                                 @PathVariable("userId") Long userId, Model model) {
     if(foodCategory.getName().equals("")) {
-      model.addAttribute("errorMessage", "Please provide food category name!");
+      model.addAttribute("errorMessageFC", "Please provide food category name!");
       model.addAttribute("foodCategories", this.foodCategoryService.findAllFoodCategoriesByUserId(userId));
       model.addAttribute("newFoodCategory", new FoodCategory());
       model.addAttribute("userId", userId);
 //      return "index";
-      return "redirect:/u/" + userId;
+      return "index";
     }
     this.foodCategoryService.addFoodCategory(userId, foodCategory);
     return "redirect:/u/" + userId;

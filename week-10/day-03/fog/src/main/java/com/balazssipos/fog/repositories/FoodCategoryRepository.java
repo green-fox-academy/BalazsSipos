@@ -10,5 +10,5 @@ import java.util.List;
 public interface FoodCategoryRepository extends CrudRepository<FoodCategory, Long> {
   FoodCategory findByName(String name);
   List<FoodCategory> findAll();
-  List<FoodCategory> findAllById(Long id);
+  List<FoodCategory> findAllByFogUserId(Long id);
 }
