@@ -20,11 +20,12 @@ namespace MediProject2.Controllers
             this.countryService = countryService;
         }
 
-        [HttpGet("/Countries/Details/{countryId}")]
-        public IActionResult Details(int countryId)
+        public IActionResult Details2(int countryId2)
         {
-            Country country = countryService.FindById(countryId);
+            Country country = countryService.FindById(countryId2);
             return View(country);
         }
+
+        
     }
 }
