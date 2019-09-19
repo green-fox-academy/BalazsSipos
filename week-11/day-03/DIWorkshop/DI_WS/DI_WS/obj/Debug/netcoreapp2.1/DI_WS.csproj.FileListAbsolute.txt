@@ -1,0 +1,14 @@
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.csproj.CoreCompileInputs.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.RazorAssemblyInfo.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.RazorAssemblyInfo.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.AssemblyInfoInputs.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.AssemblyInfo.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.csprojAssemblyReference.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\bin\Debug\netcoreapp2.1\DI_WS.deps.json
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\bin\Debug\netcoreapp2.1\DI_WS.runtimeconfig.json
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\bin\Debug\netcoreapp2.1\DI_WS.runtimeconfig.dev.json
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\bin\Debug\netcoreapp2.1\DI_WS.dll
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\bin\Debug\netcoreapp2.1\DI_WS.pdb
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.RazorTargetAssemblyInfo.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.dll
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\DIWorkshop\DI_WS\DI_WS\obj\Debug\netcoreapp2.1\DI_WS.pdb

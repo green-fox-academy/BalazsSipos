@@ -1,0 +1,30 @@
+﻿@*@{
+    ViewData["Title"] = "Home Page";
+    Model User
+}*@
+
+@model User
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th scope="col">User</th>
+                    <th><a href="/Countries/Index">Country</a></th>
+                    <th>User Profile</th>
+                    <th>Cities</th>
+                </tr>
+
+                <tr>
+                    <td>@Model.UserName</td>
+                    <td><a href="/Countries/Details/@Model.Country.CountryId">@Model.Country.CountryName</a></td>
+                    <td></td>                
+                    <td>
+                        <ul>@foreach (var c in Model.Country.Cities)
+                            {<li>@c.CityName</li>}
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>

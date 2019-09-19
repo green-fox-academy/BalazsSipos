@@ -1,0 +1,31 @@
+﻿@model MediProject2.Models.City
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>City</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="/City/EditCity/@Model.CityId" method="post">
+            
+            @*<input type="hidden" asp-for="CityId" />*@
+            <div class="form-group">
+                <label for="CityName" class="control-label"></label>
+                <input type="text" name="cityName" value="@Model.CityName" class="form-control" />
+                @*<span asp-validation-for="CityName" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="/Countries/Details/{countryId}">Back to List</a>
+</div>
+

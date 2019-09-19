@@ -1,0 +1,25 @@
+﻿@model Country
+
+<h2>@Model.CountryName</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th scope="col">Cities</th>
+
+            </tr>
+            @foreach (var c in Model.Cities)
+            {
+                <tr>
+                    <td>@c.CityName</td>
+                    <td>
+                        <a href="/City/Edit/@c.CityId" method="post">Edit</a>
+                    </td>
+                </tr>
+            }
+           
+        </table>
+    </div>
+</div>
+

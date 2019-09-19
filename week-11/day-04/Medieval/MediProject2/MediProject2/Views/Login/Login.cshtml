@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    //Layout = null;
+}
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/Login/AddUser" method="post">
+                <label>Username</label>
+                <input type="text" name="username" />
+                <label>Countryname</label>
+                <input type="text" name="countryname" />
+                <label>Cityname</label>
+                <input type="text" name="cityname" />
+                <button type="submit">Enter</button>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,11 @@
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\bin\Debug\netcoreapp2.1\Linq.deps.json
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\bin\Debug\netcoreapp2.1\Linq.runtimeconfig.json
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\bin\Debug\netcoreapp2.1\Linq.runtimeconfig.dev.json
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\bin\Debug\netcoreapp2.1\Linq.dll
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\bin\Debug\netcoreapp2.1\Linq.pdb
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\obj\Debug\netcoreapp2.1\Linq.csprojAssemblyReference.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\obj\Debug\netcoreapp2.1\Linq.csproj.CoreCompileInputs.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\obj\Debug\netcoreapp2.1\Linq.AssemblyInfoInputs.cache
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\obj\Debug\netcoreapp2.1\Linq.AssemblyInfo.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\obj\Debug\netcoreapp2.1\Linq.dll
+C:\Users\1szla\greenfox\balazssipos\week-11\day-03\LINQWorkshop\Linq\Linq\obj\Debug\netcoreapp2.1\Linq.pdb
