@@ -1,0 +1,39 @@
+﻿@model MediProject2.Models.Building
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Building</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.High)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.High)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Architect)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Architect)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BuildingId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

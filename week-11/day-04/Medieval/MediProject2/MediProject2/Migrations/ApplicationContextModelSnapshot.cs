@@ -17,6 +17,22 @@ namespace MediProject2.Migrations
                 .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("MediProject2.Models.Building", b =>
+                {
+                    b.Property<int>("BuildingId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Architect");
+
+                    b.Property<int>("High");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("BuildingId");
+
+                    b.ToTable("Buildings");
+                });
+
             modelBuilder.Entity("MediProject2.Models.City", b =>
                 {
                     b.Property<int>("CityId")

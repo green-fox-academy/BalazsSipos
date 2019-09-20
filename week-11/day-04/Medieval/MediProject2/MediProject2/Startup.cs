@@ -60,11 +60,11 @@ namespace MediProject2
             app.UseMvc(routes =>
             {
             //custom route creation
-            routes.MapRoute(
-                "CountryList", // just a name
-                "countries/details/{countryId2}", // url pattern, that should be matched
-                new { controller = "Countries", action = "Details2" }, //this will be the default implementation
-                new { countryId2 = @"\d{2}" }); // here can constraints been aded, so id should be 2 digit long
+                //routes.MapRoute(
+                //    "CountryList", // just a name
+                //    "countries/details/{countryId2}", // url pattern, that should be matched
+                //    new { controller = "Countries", action = "Details2" }, //this will be the default implementation
+                //    new { countryId2 = @"\d{2}" }); // here can constraints been aded, so id should be 2 digit long
                    
 
                 routes.MapRoute(

@@ -35,3 +35,8 @@ C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediPro
 C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\MediProject2.csprojAssemblyReference.cache
 C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\Razor\Views\Countries\Details.g.cshtml.cs
 C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\Razor\Views\City\Edit.g.cshtml.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Create.g.cshtml.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Delete.g.cshtml.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Details.g.cshtml.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Edit.g.cshtml.cs
+C:\Users\1szla\greenfox\balazssipos\week-11\day-04\Medieval\MediProject2\MediProject2\obj\Debug\netcoreapp2.1\Razor\Views\Buildings\Index.g.cshtml.cs

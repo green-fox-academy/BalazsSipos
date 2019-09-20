@@ -20,9 +20,9 @@ namespace MediProject2.Controllers
             this.countryService = countryService;
         }
 
-        public IActionResult Details2(int countryId2)
+        public IActionResult Details(int Id)
         {
-            Country country = countryService.FindById(countryId2);
+            Country country = countryService.FindById(Id);
             return View(country);
         }
 

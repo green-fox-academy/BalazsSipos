@@ -63,7 +63,7 @@ using MediProject2.Models;
             WriteLiteral("    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            ");
             EndContext();
             BeginContext(131, 413, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3ecac3569b9d4835ae7d7670f287b233", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "58c37cf838484d5abad5f51ec46363b8", async() => {
                 BeginContext(175, 362, true);
                 WriteLiteral(@"
                 <label>Username</label>

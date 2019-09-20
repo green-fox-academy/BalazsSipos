@@ -13,6 +13,7 @@ namespace MediProject2
         public DbSet<Country> Countries { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<Building> Buildings { get; set; }
 
         public ApplicationContext(DbContextOptions options) : base(options)
         {
